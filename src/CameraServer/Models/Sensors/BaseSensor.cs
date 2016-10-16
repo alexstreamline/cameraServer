@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CameraServer.Models.Sensors
+﻿namespace CameraServer.Models.Sensors
 {
+    /// <summary>
+    /// TODO:
+    /// </summary>
     public class BaseSensor
     {
+        public long Id { get; set; }
         /// <summary>
         /// Имя датчика
         /// </summary>

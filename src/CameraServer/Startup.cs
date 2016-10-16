@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +8,8 @@ using Microsoft.Extensions.Logging;
 
 namespace CameraServer
 {
+    using Models;
+
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -18,6 +18,7 @@ namespace CameraServer
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
             if (env.IsDevelopment())
@@ -35,6 +36,16 @@ namespace CameraServer
         {
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
+
+            //var connection = Configuration["Production:SqliteConnectionString"];
+            var dbPrefix = Configuration["Production:SqliteConnStringPrefix"];
+            var dbName = Configuration["Production:SqliteDbName"];
+            var dbLocationDir = Directory.GetCurrentDirectory();
+            var connection = dbPrefix + Path.Combine(dbLocationDir, dbName);
+
+            services.AddDbContext<MainContext>(options =>
+                options.UseSqlite(connection)
+            );
 
             services.AddMvc();
         }

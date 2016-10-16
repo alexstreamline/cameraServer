@@ -1,0 +1,6 @@
+﻿{
+  "Production": {
+    "SqliteConnStringPrefix": "Data Source=",
+    "SqliteDbName": "mainDb.sqlite"
+  }
+}

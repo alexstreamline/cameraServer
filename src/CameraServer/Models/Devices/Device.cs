@@ -1,9 +1,9 @@
-﻿namespace CameraServer.Models.HardwareTrasmittableData
+﻿namespace CameraServer.Models.Devices
 {
     /// <summary>
     /// TODO:
     /// </summary>
-    public class PhotoTransmit
+    public class Device
     {
         public long Id { get; set; }
     }

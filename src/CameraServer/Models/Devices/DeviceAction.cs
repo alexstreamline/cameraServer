@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CameraServer.Models.Device
+namespace CameraServer.Models.Devices
 {
+    /// <summary>
+    /// TODO:
+    /// </summary>
     public class DeviceAction
     {
+        public long Id { get; set; }
+
         public DateTime ActionTime { get; set; }
         public DayOfWeek ActionDayOfWeek { get; set; }
 
