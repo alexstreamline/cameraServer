@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*@model IEnumerable<CameraServer.Models.Devices.DeviceAction>*@
+
+<h3>@ViewBag.Message</h3>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+        <tr>
+            <th>ID</th>
+            <th>Время</th>
+            <th>День недели</th>
+            <th>1 камера</th>
+            <th>2 камера</th>
+            <th>3 камера</th>
+            <th>4 камера</th>
+            <th>Нужен сенсор</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var deviceAction in ViewBag.DeviceActions)
+            {
+                using (Html.BeginForm())
+                { 
+                    <tr>
+                        <td>@deviceAction.Id</td>
+                        <td><span class="label label-info">@deviceAction.ActionTime</span></td>
+                        <td>@deviceAction.ActionDayOfWeek</td>
+                        <td><input type="checkbox" @(deviceAction.IsCamera1PhotoNeed == true ? "checked" : "")/></td>
+                        <td><input type="checkbox" @(deviceAction.IsCamera2PhotoNeed == true ? "checked" : "")/></td>
+                        <td><input type="checkbox" @(deviceAction.IsCamera3PhotoNeed == true ? "checked" : "")/></td>
+                        <td><input type="checkbox" @(deviceAction.IsCamera4PhotoNeed == true ? "checked" : "")/></td>
+                        <td><input type="checkbox" @(deviceAction.IsSensorDataNeed == true ? "checked" : "")/></td>
+                        <td><a href="/DeviceAction/CreateDeviceAction?id=@deviceAction.Id">Редактировать</a></td>
+                        <td><a href="/DeviceAction/DeleteDeviceAction?id=@deviceAction.Id">Удалить</a></td>                    
+                        @*<td>@Html.ActionLink("Edit", "CreateDeviceAction", "DeviceAction", new { id = deviceAction.Id})</td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

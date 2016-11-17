@@ -11,39 +11,47 @@ namespace CameraServer.Repositories
     /// <summary>
     /// Репозиторий PhotoTransmits
     /// </summary>
-    public class PhotoTransmitsRepository : Repository<PhotoTransmit>
+    public class PhotoTransmitsRepository : IRepository<PhotoTransmit>
     {
-        public PhotoTransmitsRepository(MainContext context, ILoggerFactory loggerFactory) 
-            : base(context, loggerFactory)
-        {
+        #region Fields & Properties
 
+        protected readonly MainContext Context;
+        protected readonly ILogger Logger;
+
+        #endregion Fields & Properties
+
+        public PhotoTransmitsRepository(MainContext context, ILoggerFactory loggerFactory) 
+            //: base(context, loggerFactory)
+        {
+            Context = context;
+            Logger = loggerFactory.CreateLogger(nameof(PhotoTransmitsRepository));
         }
 
-        public override PhotoTransmit Get(long id)
+        public PhotoTransmit Get(long id)
         {
             return Context.PhotoTransmits.First(t => t.Id == id);
         }
 
-        public override List<PhotoTransmit> GetAll()
+        public List<PhotoTransmit> GetAll()
         {
             Logger.LogCritical("Получение всех 'PhotoTransmits'");
             return Context.PhotoTransmits.ToList();
         }
 
-        public override void Delete(long id)
+        public void Delete(long id)
         {
             var entity = Context.PhotoTransmits.First(t => t.Id == id);
             Context.PhotoTransmits.Remove(entity);
             Context.SaveChanges();
         }
 
-        public override void Post(PhotoTransmit transmit)
+        public void Post(PhotoTransmit transmit)
         {
             Context.PhotoTransmits.Add(transmit);
             Context.SaveChanges();
         }
 
-        public override void Put(long id, [FromBody]PhotoTransmit transmit)
+        public void Put(long id, [FromBody]PhotoTransmit transmit)
         {
             Context.PhotoTransmits.Update(transmit);
             Context.SaveChanges();

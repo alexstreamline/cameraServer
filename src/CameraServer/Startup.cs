@@ -1,4 +1,8 @@
 ﻿using System.IO;
+using CameraServer.Models.Devices;
+using CameraServer.Models.HardwareTrasmittableData;
+using CameraServer.Models.Sensors;
+using CameraServer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,7 +41,6 @@ namespace CameraServer
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            //var connection = Configuration["Production:SqliteConnectionString"];
             var dbPrefix = Configuration["Production:SqliteConnStringPrefix"];
             var dbName = Configuration["Production:SqliteDbName"];
             var dbLocationDir = Directory.GetCurrentDirectory();
@@ -48,6 +51,12 @@ namespace CameraServer
             );
 
             services.AddMvc();
+
+            services.AddScoped<IRepository<Device>, DevicesRepository>();
+            services.AddScoped<IRepository<DeviceAction>, DeviceActionsRepository>();
+            services.AddScoped<IRepository<BaseSensor>, BaseSensorRepository>();
+            services.AddScoped<IRepository<CameraPhoto>, CameraPhotosRepository>();
+            services.AddScoped<IRepository<PhotoTransmit>, PhotoTransmitsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +85,7 @@ namespace CameraServer
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Main}/{action=Index}/{id?}");
             });
         }
     }

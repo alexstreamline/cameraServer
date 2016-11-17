@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,39 +12,55 @@ namespace CameraServer.Repositories
     /// <summary>
     /// Репозиторий DeviceActions
     /// </summary>
-    public class DeviceActionsRepository : Repository<DeviceAction>
+    public class DeviceActionsRepository : IRepository<DeviceAction>
     {
+        #region Fields & Properties
+
+        protected readonly MainContext Context;
+        protected readonly ILogger Logger;
+
+        #endregion Fields & Properties
+
         public DeviceActionsRepository(MainContext context, ILoggerFactory loggerFactory) 
-            : base(context, loggerFactory)
+            //: base(context, loggerFactory)
         {
-
+            Context = context;
+            Logger = loggerFactory.CreateLogger(nameof(DeviceActionsRepository));
         }
 
-        public override DeviceAction Get(long id)
+        public DeviceAction Get(long id)
         {
-            return Context.DeviceActions.First(t => t.Id == id);
+            return Context.DeviceActions.FirstOrDefault(t => t.Id == id);
         }
 
-        public override List<DeviceAction> GetAll()
+        public List<DeviceAction> GetAll()
         {
             Logger.LogCritical("Получение всех 'DeviceActions'");
             return Context.DeviceActions.ToList();
         }
 
-        public override void Delete(long id)
+        public List<DeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
         {
-            var entity = Context.DeviceActions.First(t => t.Id == id);
+            Logger.LogCritical($"Получение всех 'DeviceActions' по дню {dayOfWeek}");
+            return Context.DeviceActions.Where(da => da.ActionDayOfWeek == dayOfWeek).ToList();
+        }
+
+        public void Delete(long id)
+        {
+            var entity = Context.DeviceActions.FirstOrDefault(t => t.Id == id);
+            if(entity == null)
+                return;
             Context.DeviceActions.Remove(entity);
             Context.SaveChanges();
         }
 
-        public override void Post(DeviceAction action)
+        public void Post(DeviceAction action)
         {
             Context.DeviceActions.Add(action);
             Context.SaveChanges();
         }
 
-        public override void Put(long id, [FromBody]DeviceAction action)
+        public void Put(long id, [FromBody]DeviceAction action)
         {
             Context.DeviceActions.Update(action);
             Context.SaveChanges();

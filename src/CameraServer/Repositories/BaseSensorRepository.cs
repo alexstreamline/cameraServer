@@ -11,41 +11,49 @@ namespace CameraServer.Repositories
     /// <summary>
     /// Репозиторий BaseSensors
     /// </summary>
-    public class BaseSensorRepository : Repository<BaseSensor>
+    public class BaseSensorRepository : IRepository<BaseSensor>
     {
+        #region Fields & Properties
+
+        protected readonly MainContext Context;
+        protected readonly ILogger Logger;
+
+        #endregion Fields & Properties
+
         public BaseSensorRepository(MainContext context, ILoggerFactory loggerFactory)
-            : base(context, loggerFactory)
+            //: base(context, loggerFactory)
         {
-            
+            Context = context;
+            Logger = loggerFactory.CreateLogger(nameof(BaseSensorRepository));
         }
 
         #region Methods
 
-        public override BaseSensor Get(long id)
+        public BaseSensor Get(long id)
         {
             return Context.BaseSensors.First(t => t.Id == id);
         }
 
-        public override List<BaseSensor> GetAll()
+        public List<BaseSensor> GetAll()
         {
             Logger.LogCritical("Получение всех 'BaseSensors'");
             return Context.BaseSensors.ToList();
         }
 
-        public override void Delete(long id)
+        public void Delete(long id)
         {
             var entity = Context.BaseSensors.First(t => t.Id == id);
             Context.BaseSensors.Remove(entity);
             Context.SaveChanges();
         }
 
-        public override void Post(BaseSensor sensor)
+        public void Post(BaseSensor sensor)
         {
             Context.BaseSensors.Add(sensor);
             Context.SaveChanges();
         }
 
-        public override void Put(long id, [FromBody]BaseSensor sensor)
+        public void Put(long id, [FromBody]BaseSensor sensor)
         {
             Context.BaseSensors.Update(sensor);
             Context.SaveChanges();

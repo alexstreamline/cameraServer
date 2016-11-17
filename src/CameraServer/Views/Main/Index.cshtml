@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+}
+<script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+</script>
+
+<div id="tabs">
+    <ul>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=1">Понедельник</a></li>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=2">Вторник</a></li>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=3">Среда</a></li>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=4">Четверг</a></li>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=5">Пятница</a></li>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=6">Суббота</a></li>
+        <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=0">Воскресение</a></li>
+    </ul>
+</div> 

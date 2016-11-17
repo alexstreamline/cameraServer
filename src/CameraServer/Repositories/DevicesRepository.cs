@@ -11,39 +11,47 @@ namespace CameraServer.Repositories
     /// <summary>
     /// Репозиторий Devices
     /// </summary>
-    public class DevicesRepository : Repository<Device>
+    public class DevicesRepository : IRepository<Device>
     {
-        public DevicesRepository(MainContext context, ILoggerFactory loggerFactory) 
-            : base(context, loggerFactory)
-        {
+        #region Fields & Properties
 
+        protected readonly MainContext Context;
+        protected readonly ILogger Logger;
+
+        #endregion Fields & Properties
+
+        public DevicesRepository(MainContext context, ILoggerFactory loggerFactory) 
+            //: base(context, loggerFactory)
+        {
+            Context = context;
+            Logger = loggerFactory.CreateLogger(nameof(DevicesRepository));
         }
 
-        public override Device Get(long id)
+        public Device Get(long id)
         {
             return Context.Devices.First(t => t.Id == id);
         }
 
-        public override List<Device> GetAll()
+        public List<Device> GetAll()
         {
             Logger.LogCritical("Получение всех 'Devices'");
             return Context.Devices.ToList();
         }
 
-        public override void Delete(long id)
+        public void Delete(long id)
         {
             var entity = Context.Devices.First(t => t.Id == id);
             Context.Devices.Remove(entity);
             Context.SaveChanges();
         }
 
-        public override void Post(Device device)
+        public void Post(Device device)
         {
             Context.Devices.Add(device);
             Context.SaveChanges();
         }
 
-        public override void Put(long id, [FromBody]Device device)
+        public void Put(long id, [FromBody]Device device)
         {
             Context.Devices.Update(device);
             Context.SaveChanges();
