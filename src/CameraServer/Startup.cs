@@ -47,21 +47,14 @@ namespace CameraServer
             var dbLocationDir = Directory.GetCurrentDirectory();
             var connection = dbPrefix + Path.Combine(dbLocationDir, dbName);
 
-            //services.AddDbContext<MainContext>(options =>
-            //    options.UseSqlite(connection)
-            //);
-            //services.AddDbContext<UserContext>(options => 
-            //    options.UseSqlite(connection)
-            //);
-
             services.AddEntityFrameworkSqlite()
                 .AddDbContext<MainContext>(options => options.UseSqlite(connection))
                 .AddDbContext<UserContext>(options => options.UseSqlite(connection));
 
             services.AddMvc();
 
-            services.AddScoped<IRepository<Device>, DevicesRepository>();
             services.AddScoped<IRepository<DeviceAction>, DeviceActionsRepository>();
+            services.AddScoped<IRepository<TriggerDeviceAction>, TriggerDeviceActionRepository>();
             services.AddScoped<IRepository<BaseSensor>, BaseSensorRepository>();
             services.AddScoped<IRepository<CameraPhoto>, CameraPhotosRepository>();
             services.AddScoped<IRepository<PhotoTransmit>, PhotoTransmitsRepository>();

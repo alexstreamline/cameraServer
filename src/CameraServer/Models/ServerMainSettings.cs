@@ -7,6 +7,6 @@ namespace CameraServer.Models
 {
     public static class ServerMainSettings
     {
-        public string PhotoFromDeviceLocation { get; set; }
+        public static string PhotoFromDeviceLocation { get; set; }
     }
 }

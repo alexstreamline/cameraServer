@@ -8,9 +8,10 @@ using CameraServer.Models;
 namespace CameraServer.Migrations
 {
     [DbContext(typeof(MainContext))]
-    partial class MainContextModelSnapshot : ModelSnapshot
+    [Migration("20161118151020_MainContextMigration")]
+    partial class MainContextMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
@@ -79,54 +80,6 @@ namespace CameraServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DeviceActions");
-                });
-
-            modelBuilder.Entity("CameraServer.Models.Devices.TriggerDeviceAction", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ActionDayOfWeek");
-
-                    b.Property<bool>("IsAccelerometerDataNeed");
-
-                    b.Property<bool>("IsBarometerDataNeed");
-
-                    b.Property<bool>("IsCamera1PhotoNeed");
-
-                    b.Property<bool>("IsCamera2PhotoNeed");
-
-                    b.Property<bool>("IsCamera3PhotoNeed");
-
-                    b.Property<bool>("IsCamera4PhotoNeed");
-
-                    b.Property<bool>("IsCompassDataNeed");
-
-                    b.Property<bool>("IsGPSGLONASSDataNeed");
-
-                    b.Property<bool>("IsGyroscopeDataNeed");
-
-                    b.Property<bool>("IsMotionSensor1DataNeed");
-
-                    b.Property<bool>("IsMotionSensor2DataNeed");
-
-                    b.Property<bool>("IsMotionSensor3DataNeed");
-
-                    b.Property<bool>("IsMotionSensor4DataNeed");
-
-                    b.Property<bool>("IsPhotoNeedToServer");
-
-                    b.Property<bool>("IsSensorDataNeed");
-
-                    b.Property<bool>("IsThermometerDataNeed");
-
-                    b.Property<bool>("IsWetSensorDataNeed");
-
-                    b.Property<string>("SensorName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TriggerDeviceActions");
                 });
 
             modelBuilder.Entity("CameraServer.Models.HardwareTrasmittableData.PhotoTransmit", b =>

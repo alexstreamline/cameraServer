@@ -1,28 +1,91 @@
-﻿namespace CameraServer.Models.Devices
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace CameraServer.Models.Devices
 {
     /// <summary>
-    /// TODO: базовый класс для описания запроса сбора информации на устройстве
+    /// Базовый класс для описания запроса сбора информации на устройстве
     /// </summary>
-    public class Device
+    public abstract class Device
     {
+        #region Fields & Properties
+
+        [Required]
+        [UIHint("HiddenInput")]
         public long Id { get; set; }
-        public System.DayOfWeek ActionDayOfWeek { get; set; }
-        public bool IsCamera1PhotoNeed { get; set; } = false;
-        public bool IsCamera2PhotoNeed { get; set; } = false;
-        public bool IsCamera3PhotoNeed { get; set; } = false;
-        public bool IsCamera4PhotoNeed { get; set; } = false;
-        public bool IsPhotoNeedToServer { get; set; } = false;
-        public bool IsSensorDataNeed { get; set; } = false;
-        public bool IsMotionSensor1DataNeed { get; set; } = false;
-        public bool IsMotionSensor2DataNeed { get; set; } = false;
-        public bool IsMotionSensor3DataNeed { get; set; } = false;
-        public bool IsMotionSensor4DataNeed { get; set; } = false;
-        public bool IsGPSGLONASSDataNeed { get; set; } = false;
-        public bool IsBarometerDataNeed { get; set; } = false;
-        public bool IsCompassDataNeed { get; set; } = false;
-        public bool IsAccelerometerDataNeed { get; set; } = false;
-        public bool IsGyroscopeDataNeed { get; set; } = false;
-        public bool IsThermometerDataNeed { get; set; } = false;
-        public bool IsWetSensorDataNeed { get; set; } = false;
+
+        [Display(Name = "День недели (0-6)")]
+        public DayOfWeek ActionDayOfWeek { get; set; }
+
+        [Display(Name = "Нужна фото от 1 камеры?")]
+        [UIHint("Boolean")]
+        public bool IsCamera1PhotoNeed { get; set; }
+
+        [Display(Name = "Нужна фото от 2 камеры?")]
+        [UIHint("Boolean")]
+        public bool IsCamera2PhotoNeed { get; set; }
+
+        [Display(Name = "Нужна фото от 3 камеры?")]
+        [UIHint("Boolean")]
+        public bool IsCamera3PhotoNeed { get; set; }
+
+        [Display(Name = "Нужна фото от 4 камеры?")]
+        [UIHint("Boolean")]
+        public bool IsCamera4PhotoNeed { get; set; }
+
+        [Display(Name = "Отправлять фото на сервер?")]
+        [UIHint("Boolean")]
+        public bool IsPhotoNeedToServer { get; set; }
+
+        [Display(Name = "Нужны данные от датчиков?")]
+        [UIHint("Boolean")]
+        public bool IsSensorDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от 1 датчика движения?")]
+        [UIHint("Boolean")]
+        public bool IsMotionSensor1DataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от 2 датчика движения?")]
+        [UIHint("Boolean")]
+        public bool IsMotionSensor2DataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от 3 датчика движения?")]
+        [UIHint("Boolean")]
+        public bool IsMotionSensor3DataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от 4 датчика движения?")]
+        [UIHint("Boolean")]
+        public bool IsMotionSensor4DataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от GPS/ГЛОНАСС?")]
+        [UIHint("Boolean")]
+        // ReSharper disable once InconsistentNaming
+        public bool IsGPSGLONASSDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от барометра?")]
+        [UIHint("Boolean")]
+        public bool IsBarometerDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от компаса?")]
+        [UIHint("Boolean")]
+        public bool IsCompassDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от акселерометра?")]
+        [UIHint("Boolean")]
+        public bool IsAccelerometerDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от гироскопа?")]
+        [UIHint("Boolean")]
+        public bool IsGyroscopeDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от термометра?")]
+        [UIHint("Boolean")]
+        public bool IsThermometerDataNeed { get; set; }
+
+        [Display(Name = "Нужны данные от датчика влаги?")]
+        [UIHint("Boolean")]
+        public bool IsWetSensorDataNeed { get; set; }
+
+        #endregion Fields & Properties
     }
 }

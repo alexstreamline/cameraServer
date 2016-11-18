@@ -46,85 +46,59 @@
             <input asp-for="IsCamera4PhotoNeed" class="form-control"/>
         </div>
         <div class="form-group">
-            <label asp-for="IsSensorDataNeed"></label><br/>
-            <input asp-for="IsSensorDataNeed" class="form-control"/>
+            <label asp-for="IsPhotoNeedToServer"></label><br />
+            <input asp-for="IsPhotoNeedToServer" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsSensorDataNeed"></label><br />
+            <input asp-for="IsSensorDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor1DataNeed"></label><br/>
+            <input asp-for="IsMotionSensor1DataNeed" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor2DataNeed"></label><br />
+            <input asp-for="IsMotionSensor2DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor3DataNeed"></label><br />
+            <input asp-for="IsMotionSensor3DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor4DataNeed"></label><br />
+            <input asp-for="IsMotionSensor4DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsGPSGLONASSDataNeed"></label><br />
+            <input asp-for="IsGPSGLONASSDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsBarometerDataNeed"></label><br />
+            <input asp-for="IsBarometerDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCompassDataNeed"></label><br />
+            <input asp-for="IsCompassDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsAccelerometerDataNeed"></label><br />
+            <input asp-for="IsAccelerometerDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsGyroscopeDataNeed"></label><br />
+            <input asp-for="IsGyroscopeDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsThermometerDataNeed"></label><br />
+            <input asp-for="IsThermometerDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsWetSensorDataNeed"></label><br />
+            <input asp-for="IsWetSensorDataNeed" class="form-control" />
         </div>
         <div class="offset-sm-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Создать</button>
         </div>
-        @*<div>
-            <input type="submit" value="Save" />
-        </div>*@
     </div>
 </form>
-
-<!--<form method="post" action="~/DeviceAction/CreateDeviceAction" class="form-horizontal" role="form">
-    @*<div class="form-group">
-        <label for="cameraNumber" class="col-sm-2 control-label">Номер камеры</label>
-        <div class="col-sm-10">
-            <input type="number" class="form-control" name="cameraNumber" id="cameraNumber" placeholder="Введите номер камеры">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Название фотографии</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Введите Название фотографии">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="fsLocation" class="col-sm-2 control-label">Путь в файловой системе:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="fsLocation" id="fsLocation" placeholder="Укажите путь">
-        </div>
-    </div>*@
-    @*<div class="form-group">
-            <label for="timestamp" class="col-sm-2 control-label">Дата и время:</label>
-            <div class="col-sm-10">
-                <input type="datetime" class="form-control" name="timestamp" id="timestamp" placeholder="Дата и время">
-            </div>
-        </div>*@
-    <div class="form-group">
-        <label>Дата:</label><br />
-        <input type="datetime" name="actionTime" /><br />
-        <label>День недели (0-6):</label><br />
-        <input type="number" name="actionDayOfWeek" /><br />
-        <label>isCamera1PhotoNeed:</label><br />
-        <input type="checkbox" name="isCamera1PhotoNeed" /><br />
-        <label>isCamera2PhotoNeed:</label><br />
-        <input type="checkbox" name="isCamera2PhotoNeed" /><br />
-        <label>isCamera3PhotoNeed:</label><br />
-        <input type="checkbox" name="isCamera3PhotoNeed" /><br />
-        <label>isCamera4PhotoNeed:</label><br />
-        <input type="checkbox" name="isCamera4PhotoNeed" /><br />
-        <label>IsSensorDataNeed:</label><br />
-        <input type="checkbox" name="isSensorDataNeed" /><br />
-        <input type="submit" value="Отправить" />
-        @*<label for="actiontime" class="col-sm-2 control-label">Дата и время:</label>
-        <div class="col-sm-10">
-            <input type="datetime" class="form-control" name="ActionTime" id="actiontime" />
-            <span class="offset-sm-2 col-sm-10">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-        </div>*@
-        @*<label for="actiontime" class="col-sm-2 control-label">Дата и время:</label>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <div class="input-group date" id="actiontime" name="ActionTime">
-                    <input type="text" class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <label for="isCamera1PhotoNeed" class="col-sm-2 control-label">Нужна 1 камера? :</label>
-        <div class="col-sm-10">
-            <input type="checkbox" class="form-control" name="IsCamera1PhotoNeed" id="isCamera1PhotoNeed" />
-        </div>*@
-    </div>
-    @*<div class="form-group row">
-        <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Создать</button>
-        </div>
-    </div>*@
-</form>-->
