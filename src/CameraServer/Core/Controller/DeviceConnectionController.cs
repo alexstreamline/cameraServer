@@ -14,7 +14,7 @@ namespace CameraServer.Core.Controller
     {
         private TcpListener _serverListner;
         private int localport = 52000;
-        IPAddress localIpAddress = IPAddress.Parse("192.168.0.1"); 
+        IPAddress localIpAddress = IPAddress.Parse("193.124.113.169"); 
         public void StartServer()
         {
             _serverListner = new TcpListener(localIpAddress,localport );
@@ -31,18 +31,13 @@ namespace CameraServer.Core.Controller
                 try
                 {
 
-                    var newConnection = _serverListner.AcceptTcpClient();
+                    var newConnection = _serverListner.AcceptTcpClientAsync().Result;
                     
                         Thread readThread = new Thread(ReceiveRun);
                         // readThread.Start(_countClient);
                         readThread.Start(newConnection);
                         
                        
-                        // Данный метод, хотя и вызывается в отдельном потоке (не в главном),
-                        // но находит родительский поток и выполняет делегат указанный в качестве параметра 
-                        // в главном потоке, безопасно обновляя интерфейс формы.
-                        //Invoke(new UpdateClientsDisplayDelegate(UpdateClientsDisplay));
-                    
 
                 }
                 catch (Exception ex)
@@ -51,16 +46,10 @@ namespace CameraServer.Core.Controller
                    // LogString += "Ошибка при приеме нового подключения - " + ex.Message + "\n";
                 }
 
-
-                if (_stopFlag)
-                {
-                    break;
-                }
-
             }
         }
 
-        void ReceiveRun(object connection)
+        void ReceiveRun(object connect)
         {
             bool _localstopFlag = false;
             while (!_localstopFlag)
@@ -68,6 +57,7 @@ namespace CameraServer.Core.Controller
                 try
                 {
                     string s = null;
+                    var connection = (TcpClient) connect;
                     // NetworkStream ns = clients[(int)num].GetStream();
                     NetworkStream ns = connection.GetStream();
                     while (ns.DataAvailable)
@@ -75,7 +65,8 @@ namespace CameraServer.Core.Controller
                         // Определить точный размер буфера приема позволяет свойство класса TcpClient - Available
                         byte[] buffer = new byte[connection.Available];
                         ns.Read(buffer, 0, buffer.Length);
-                        s += Encoding.Default.GetString(buffer);
+                        s += Encoding.Unicode.GetString(buffer);
+                        
                     }
 
                     if (s != null)
@@ -99,7 +90,7 @@ namespace CameraServer.Core.Controller
                 }
                 catch (Exception ex)
                 {
-                    LogString += "Ошибка (отправление) - " + ex.Message + "\n";
+                   // LogString += "Ошибка (отправление) - " + ex.Message + "\n";
                     _localstopFlag = true;
                     // Перехватим возможные исключения
                     //ErrorSound();
@@ -109,6 +100,11 @@ namespace CameraServer.Core.Controller
                 if (_localstopFlag == true) break;
 
             }
+        }
+
+        public void PacketAnalyzer(byte[] packet)
+        {
+            
         }
 
 

@@ -8,10 +8,10 @@ namespace CameraServer.Core.Controller
 {
     public class PhotoReceiver
     {
-        public async void ReceivePhotoFromDevice(string fileName, byte[] photoData)
+        public void ReceivePhotoFromDevice(string fileName, byte[] photoData)
         {
             FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-            var photoFile = await fileStream.WriteAsync(photoData, 0, photoData.Lenght).Result;  
+            fileStream.WriteAsync(photoData, 0, photoData.Length).Start();  
         }
     }
 }
