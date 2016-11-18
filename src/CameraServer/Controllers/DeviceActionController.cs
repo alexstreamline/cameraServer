@@ -1,18 +1,29 @@
 ﻿using CameraServer.Models.Devices;
 using CameraServer.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace CameraServer.Controllers
 {
+    [Authorize]
     public class DeviceActionController : Controller
     {
+        #region Fields & Properties
+
         public IRepository<DeviceAction> DeviceActionRepo { get; set; }
+
+        #endregion Fields & Properties
+
+        #region ctors
 
         public DeviceActionController(IRepository<DeviceAction> repo)
         {
             DeviceActionRepo = repo;
         }
+
+        #endregion ctors
+
+        #region Methods
 
         public IActionResult Index()
         {
@@ -60,5 +71,7 @@ namespace CameraServer.Controllers
             DeviceActionRepo.Post(deviceAction);
             return $"Cущность 'DeviceAction' была добавлена: {deviceAction}";
         }
+
+        #endregion Methods
     }
 }

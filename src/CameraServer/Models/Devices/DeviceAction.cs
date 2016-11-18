@@ -16,8 +16,14 @@ namespace CameraServer.Models.Devices
         public long Id { get; set; }
 
         [Display(Name = "Дата и время")]
+        //[DisplayFormat(DataFormatString = "{HH:mm}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime ActionTime { get; set; }
+
+        //[Display(Name = "Час")]
+        //public int Hour { get; set; }
+        //[Display(Name = "Минута")]
+        //public int Minute { get; set; }
 
         [Display(Name = "День недели (0-6)")]
         public DayOfWeek ActionDayOfWeek { get; set; }

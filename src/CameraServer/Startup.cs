@@ -2,6 +2,7 @@
 using CameraServer.Models.Devices;
 using CameraServer.Models.HardwareTrasmittableData;
 using CameraServer.Models.Sensors;
+using CameraServer.Models.Users;
 using CameraServer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
@@ -46,9 +47,16 @@ namespace CameraServer
             var dbLocationDir = Directory.GetCurrentDirectory();
             var connection = dbPrefix + Path.Combine(dbLocationDir, dbName);
 
-            services.AddDbContext<MainContext>(options =>
-                options.UseSqlite(connection)
-            );
+            //services.AddDbContext<MainContext>(options =>
+            //    options.UseSqlite(connection)
+            //);
+            //services.AddDbContext<UserContext>(options => 
+            //    options.UseSqlite(connection)
+            //);
+
+            services.AddEntityFrameworkSqlite()
+                .AddDbContext<MainContext>(options => options.UseSqlite(connection))
+                .AddDbContext<UserContext>(options => options.UseSqlite(connection));
 
             services.AddMvc();
 
@@ -80,6 +88,14 @@ namespace CameraServer
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationScheme = "Cookies",
+                LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login"),
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true
+            });
 
             app.UseMvc(routes =>
             {

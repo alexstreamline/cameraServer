@@ -7,12 +7,22 @@ namespace CameraServer.Controllers
 {
     public class MainController : Controller
     {
+        #region Fields & Properties
+
         public IRepository<DeviceAction> DeviceActionRepo { get; set; }
+
+        #endregion Fields & Properties
+
+        #region ctors
 
         public MainController(IRepository<DeviceAction> repo)
         {
             DeviceActionRepo = repo;
         }
+
+        #endregion ctors
+
+        #region Methods
 
         public IActionResult Index()
         {
@@ -27,5 +37,7 @@ namespace CameraServer.Controllers
             ViewBag.DeviceActions = (DeviceActionRepo as DeviceActionsRepository).GetAllByDay(dayOfWeek);
             return View();
         }
+
+        #endregion Methods
     }
 }
