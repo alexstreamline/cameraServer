@@ -12,8 +12,8 @@ namespace CameraServer.Core.Controller
         {
            byte[] dataMessage = new byte[5];
             dataMessage[0] = 0xBE;
-            dataMessage[1] = (byte) deviceAction.ActionTime.Hour;
-            dataMessage[2] = (byte)deviceAction.ActionTime.Minute;
+            dataMessage[1] = (byte) deviceAction.Hour;
+            dataMessage[2] = (byte)deviceAction.Minute;
             dataMessage[3] = (byte) deviceAction.ActionDayOfWeek;
             byte camAndConnect = 0;
             if (deviceAction.IsCamera1PhotoNeed) { camAndConnect += 1;}
