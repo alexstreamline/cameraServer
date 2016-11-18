@@ -54,7 +54,6 @@ namespace CameraServer.Controllers
             {
                 DeviceActionRepo.Delete(id.Value);
             }
-            //return View("/");
             return Content($"Удален 'DeviceAction' с id = {id}<br/><a href='/'>На главную</a>", "text/html");
         }
 
@@ -63,9 +62,9 @@ namespace CameraServer.Controllers
         {
             if (DeviceActionRepo.Get(deviceAction.Id) != null)
             {
-                DeviceActionRepo.Put(deviceAction.Id, deviceAction);
-                //var update = DeviceActionRepo.Get(deviceAction.Id);
-                //DeviceActionRepo.Put(update.Id, update);
+                var update = DeviceActionRepo.Get(deviceAction.Id);
+                update.CopyDataFrom(deviceAction);
+                DeviceActionRepo.Put(update.Id, update);
                 return $"Cущность 'DeviceAction' была изменена: {deviceAction}";
             }
             DeviceActionRepo.Post(deviceAction);

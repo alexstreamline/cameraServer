@@ -15,8 +15,8 @@ namespace CameraServer.Models.Devices
         [UIHint("HiddenInput")]
         public long Id { get; set; }
 
-        [Display(Name = "Дата и время")]
-        //[DisplayFormat(DataFormatString = "{HH:mm}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Время в формате ЧЧ:ММ")]
+        //[DisplayFormat(DataFormatString = "{0:t}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime ActionTime { get; set; }
 
@@ -48,6 +48,20 @@ namespace CameraServer.Models.Devices
         #endregion Fields & Properties
 
         #region Methods
+
+        public void CopyDataFrom(DeviceAction otherDa)
+        {
+            Id = otherDa.Id;
+            ActionTime = otherDa.ActionTime;
+            //Hour = otherDa.Hour;
+            //Minute = otherDa.Minute;
+            ActionDayOfWeek = otherDa.ActionDayOfWeek;
+            IsCamera1PhotoNeed = otherDa.IsCamera1PhotoNeed;
+            IsCamera2PhotoNeed = otherDa.IsCamera2PhotoNeed;
+            IsCamera3PhotoNeed = otherDa.IsCamera3PhotoNeed;
+            IsCamera4PhotoNeed = otherDa.IsCamera4PhotoNeed;
+            IsSensorDataNeed = otherDa.IsSensorDataNeed;
+        }
 
         public override string ToString()
         {

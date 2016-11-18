@@ -21,12 +21,17 @@ namespace CameraServer.Repositories
 
         #endregion Fields & Properties
 
+        #region ctors
+
         public DeviceActionsRepository(MainContext context, ILoggerFactory loggerFactory) 
-            //: base(context, loggerFactory)
         {
             Context = context;
             Logger = loggerFactory.CreateLogger(nameof(DeviceActionsRepository));
         }
+
+        #endregion ctors
+
+        #region Methods
 
         public DeviceAction Get(long id)
         {
@@ -37,12 +42,6 @@ namespace CameraServer.Repositories
         {
             Logger.LogCritical("Получение всех 'DeviceActions'");
             return Context.DeviceActions.ToList();
-        }
-
-        public List<DeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
-        {
-            Logger.LogCritical($"Получение всех 'DeviceActions' по дню {dayOfWeek}");
-            return Context.DeviceActions.Where(da => da.ActionDayOfWeek == dayOfWeek).ToList();
         }
 
         public void Delete(long id)
@@ -65,5 +64,13 @@ namespace CameraServer.Repositories
             Context.DeviceActions.Update(action);
             Context.SaveChanges();
         }
+
+        public List<DeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
+        {
+            Logger.LogCritical($"Получение всех 'DeviceActions' по дню {dayOfWeek}");
+            return Context.DeviceActions.Where(da => da.ActionDayOfWeek == dayOfWeek).ToList();
+        }
+
+        #endregion Methods
     }
 }
