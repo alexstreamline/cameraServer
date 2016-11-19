@@ -1,0 +1,93 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CameraServer.Models.Devices.TriggerDeviceAction
+
+<form asp-action="CreateTriggerDeviceAction" asp-controller="TriggerDeviceAction" asp-anti-forgery="true" class="form-horizontal">
+    <div>
+        <div class="form-group">
+            <input type="hidden" asp-for="Id" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="SensorName"></label><br />
+            <input type="text" asp-for="SensorName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ActionDayOfWeek"></label><br />
+            <input asp-for="ActionDayOfWeek" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCamera1PhotoNeed"></label><br />
+            <input asp-for="IsCamera1PhotoNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCamera2PhotoNeed"></label><br />
+            <input asp-for="IsCamera2PhotoNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCamera3PhotoNeed"></label><br />
+            <input asp-for="IsCamera3PhotoNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCamera4PhotoNeed"></label><br />
+            <input asp-for="IsCamera4PhotoNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsPhotoNeedToServer"></label><br />
+            <input asp-for="IsPhotoNeedToServer" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsSensorDataNeed"></label><br />
+            <input asp-for="IsSensorDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor1DataNeed"></label><br />
+            <input asp-for="IsMotionSensor1DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor2DataNeed"></label><br />
+            <input asp-for="IsMotionSensor2DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor3DataNeed"></label><br />
+            <input asp-for="IsMotionSensor3DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsMotionSensor4DataNeed"></label><br />
+            <input asp-for="IsMotionSensor4DataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsGPSGLONASSDataNeed"></label><br />
+            <input asp-for="IsGPSGLONASSDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsBarometerDataNeed"></label><br />
+            <input asp-for="IsBarometerDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCompassDataNeed"></label><br />
+            <input asp-for="IsCompassDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsAccelerometerDataNeed"></label><br />
+            <input asp-for="IsAccelerometerDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsGyroscopeDataNeed"></label><br />
+            <input asp-for="IsGyroscopeDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsThermometerDataNeed"></label><br />
+            <input asp-for="IsThermometerDataNeed" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsWetSensorDataNeed"></label><br />
+            <input asp-for="IsWetSensorDataNeed" class="form-control" />
+        </div>
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h3>@ViewBag.Message</h3>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr>
+                <th>ID</th>
+                <th>Время</th>
+                <th>День недели</th>
+                <th>1 камера</th>
+                <th>2 камера</th>
+                <th>3 камера</th>
+                <th>4 камера</th>
+                <th>Отправка фото</th>
+                <th>Данные с датчиков</th>
+                <th>1 датчик движения</th>
+                <th>2 датчик движения</th>
+                <th>3 датчик движения</th>
+                <th>4 датчик движения</th>
+                <th>GPS/ГЛОНАСС</th>
+                <th>Барометр</th>
+                <th>Компас</th>
+                <th>Акселерометр</th>
+                <th>Гироскоп</th>
+                <th>Термометр</th>
+                <th>Датчик влаги</th>
+                <th>Редактировать</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deviceAction in ViewBag.TriggerDeviceActions)
+            {
+                using (Html.BeginForm())
+                {
+                    <tr>
+                        <td>@deviceAction.Id</td>
+                        <td><span class="label label-info">@deviceAction.SensorName</span></td>
+                        <td>@deviceAction.ActionDayOfWeek</td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera1PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera2PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera3PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera4PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsPhotoNeedToServer == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsSensorDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor1DataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor2DataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor3DataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor4DataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsGPSGLONASSDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsBarometerDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCompassDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsAccelerometerDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsGyroscopeDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsThermometerDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsWetSensorDataNeed == true ? "checked" : "") /></td>
+                        <td><a href="/TriggerDeviceAction/CreateTriggerDeviceAction?id=@deviceAction.Id">Редактировать</a></td>
+                        <td><a href="/TriggerDeviceAction/DeleteTriggerDeviceAction?id=@deviceAction.Id">Удалить</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

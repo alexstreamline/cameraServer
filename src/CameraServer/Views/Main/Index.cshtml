@@ -10,6 +10,13 @@
         });
 </script>
 
+<script>
+        $(function () {
+            $("#tabs2").tabs();
+        });
+</script>
+
+<h3> Device Action entities</h3>
 <div id="tabs">
     <ul>
         <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=1">Понедельник</a></li>
@@ -19,5 +26,18 @@
         <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=5">Пятница</a></li>
         <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=6">Суббота</a></li>
         <li><a href="/Main/GetDeviceActionsByWeekDay?dayOfWeek=0">Воскресение</a></li>
+    </ul>
+</div> 
+
+<h3> Trigger Device Action entities</h3>
+<div id="tabs2">
+    <ul>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=1">Понедельник</a></li>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=2">Вторник</a></li>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=3">Среда</a></li>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=4">Четверг</a></li>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=5">Пятница</a></li>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=6">Суббота</a></li>
+        <li><a href="/Main/GetTriggerDeviceActionsByWeekDay?dayOfWeek=0">Воскресение</a></li>
     </ul>
 </div> 

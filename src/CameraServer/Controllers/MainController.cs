@@ -10,14 +10,16 @@ namespace CameraServer.Controllers
         #region Fields & Properties
 
         public IRepository<DeviceAction> DeviceActionRepo { get; set; }
+        public IRepository<TriggerDeviceAction> TriggerDeviceActionRepo { get; set; }
 
         #endregion Fields & Properties
 
         #region ctors
 
-        public MainController(IRepository<DeviceAction> repo)
+        public MainController(IRepository<DeviceAction> repoDa, IRepository<TriggerDeviceAction> repoTda)
         {
-            DeviceActionRepo = repo;
+            DeviceActionRepo = repoDa;
+            TriggerDeviceActionRepo = repoTda;
         }
 
         #endregion ctors
@@ -33,8 +35,15 @@ namespace CameraServer.Controllers
         public IActionResult GetDeviceActionsByWeekDay(DayOfWeek dayOfWeek)
         {
             ViewBag.Message = $"Day of week (0-6, sunday = 0): {dayOfWeek}";
-            //ViewBag.DeviceActions = DeviceActionRepo.GetAll();
             ViewBag.DeviceActions = (DeviceActionRepo as DeviceActionsRepository).GetAllByDay(dayOfWeek);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult GetTriggerDeviceActionsByWeekDay(DayOfWeek dayOfWeek)
+        {
+            ViewBag.Message = $"Day of week (0-6, sunday = 0): {dayOfWeek}";
+            ViewBag.TriggerDeviceActions = (TriggerDeviceActionRepo as TriggerDeviceActionRepository).GetAllByDay(dayOfWeek);
             return View();
         }
 

@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using CameraServer.Models.Devices
+
+<br />
+<a href="/TriggerDeviceAction/CreateTriggerDeviceAction">Добавить новый 'TriggerDeviceAction'</a>
+<H1>DeviceActionRepo.GetAll result: </H1>
+@{
+    foreach (var item in ViewBag.Items)
+    {
+        var deviceAction = item as TriggerDeviceAction;
+        <hr />
+        <h2>Device Action Item: id - @deviceAction.Id</h2><br />
+        <h4>Название: @deviceAction.SensorName</h4>
+        <h4>День недели: @deviceAction.ActionDayOfWeek</h4>
+        <h4>Нужна фото от 1 камеры?: @deviceAction.IsCamera1PhotoNeed</h4>
+        <h4>Нужна фото от 2 камеры?: @deviceAction.IsCamera2PhotoNeed</h4>
+        <h4>Нужна фото от 3 камеры?: @deviceAction.IsCamera3PhotoNeed</h4>
+        <h4>Нужна фото от 4 камеры?: @deviceAction.IsCamera4PhotoNeed</h4>
+        <h4>Нужны данные от датчиков?: @deviceAction.IsSensorDataNeed</h4>
+    }
+}

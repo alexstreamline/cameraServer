@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CameraServer.Models;
 using CameraServer.Models.Devices;
@@ -55,6 +56,12 @@ namespace CameraServer.Repositories
         {
             Context.TriggerDeviceActions.Update(entity);
             Context.SaveChanges();
+        }
+
+        public List<TriggerDeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
+        {
+            Logger.LogCritical($"Получение всех 'TriggerDeviceActions' по дню {dayOfWeek}");
+            return Context.TriggerDeviceActions.Where(tda => tda.ActionDayOfWeek == dayOfWeek).ToList();
         }
 
         #endregion Methods
