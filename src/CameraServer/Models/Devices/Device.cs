@@ -86,6 +86,10 @@ namespace CameraServer.Models.Devices
         [UIHint("Boolean")]
         public bool IsWetSensorDataNeed { get; set; }
 
+        [Display(Name = "Нужны данные от датчика вибрации?")]
+        [UIHint("Boolean")]
+        public bool IsVibrationSensorDataNeed { get; set; }
+
         #endregion Fields & Properties
     }
 }
