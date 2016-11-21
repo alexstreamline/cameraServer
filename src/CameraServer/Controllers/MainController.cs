@@ -32,17 +32,11 @@ namespace CameraServer.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetDeviceActionsByWeekDay(DayOfWeek dayOfWeek)
+        public IActionResult GetDevicesByWeekDay(DayOfWeek dayOfWeek)
         {
-            ViewBag.Message = $"Day of week (0-6, sunday = 0): {dayOfWeek}";
+            ViewBag.DeviceActionsLabel = $"Сущности {nameof(DeviceAction)}";//nameof(DeviceActionRepo);
             ViewBag.DeviceActions = (DeviceActionRepo as DeviceActionsRepository).GetAllByDay(dayOfWeek);
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult GetTriggerDeviceActionsByWeekDay(DayOfWeek dayOfWeek)
-        {
-            ViewBag.Message = $"Day of week (0-6, sunday = 0): {dayOfWeek}";
+            ViewBag.TriggerDeviceActionsLabel = $"Сущности {nameof(TriggerDeviceAction)}";//nameof(TriggerDeviceActionRepo);
             ViewBag.TriggerDeviceActions = (TriggerDeviceActionRepo as TriggerDeviceActionRepository).GetAllByDay(dayOfWeek);
             return View();
         }
