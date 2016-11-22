@@ -19,12 +19,15 @@ namespace CameraServer.Repositories
 
         #endregion Fields & Properties
 
+        #region ctors
+
         public CameraPhotosRepository(MainContext context, ILoggerFactory loggerFactory)
-            //:base(context, loggerFactory)
         {
             Context = context;
             Logger = loggerFactory.CreateLogger(nameof(CameraPhotosRepository));
         }
+
+        #endregion ctors
 
         #region Methods
 
@@ -35,7 +38,7 @@ namespace CameraServer.Repositories
 
         public List<CameraPhoto> GetAll()
         {
-            Logger.LogCritical("Получение всех 'CameraPhotos'");
+            Logger.LogCritical($"Получение всех '{nameof(CameraPhoto)}'");
             return Context.CameraPhotos.ToList();
         }
 

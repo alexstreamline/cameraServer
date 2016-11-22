@@ -35,7 +35,7 @@ namespace CameraServer.Repositories
 
         public List<TriggerDeviceAction> GetAll()
         {
-            Logger.LogCritical("Получение всех 'TriggerDeviceActions'");
+            Logger.LogCritical($"Получение всех '{nameof(TriggerDeviceAction)}'");
             return Context.TriggerDeviceActions.ToList();
         }
 
@@ -60,7 +60,7 @@ namespace CameraServer.Repositories
 
         public List<TriggerDeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
         {
-            Logger.LogCritical($"Получение всех 'TriggerDeviceActions' по дню {dayOfWeek}");
+            Logger.LogCritical($"Получение всех '{nameof(TriggerDeviceAction)}' по дню {dayOfWeek}");
             return Context.TriggerDeviceActions.Where(tda => tda.ActionDayOfWeek == dayOfWeek).ToList();
         }
 

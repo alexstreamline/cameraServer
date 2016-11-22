@@ -55,6 +55,8 @@ namespace CameraServer
 
             services.AddScoped<IRepository<DeviceAction>, DeviceActionsRepository>();
             services.AddScoped<IRepository<TriggerDeviceAction>, TriggerDeviceActionRepository>();
+            services.AddScoped<IRepository<DeviceSensorSettings>, DeviceSensorSettingsRepository>();
+            services.AddScoped<IRepository<DeviceData>, DeviceDataRepository>();
             services.AddScoped<IRepository<BaseSensor>, BaseSensorRepository>();
             services.AddScoped<IRepository<CameraPhoto>, CameraPhotosRepository>();
             services.AddScoped<IRepository<PhotoTransmit>, PhotoTransmitsRepository>();

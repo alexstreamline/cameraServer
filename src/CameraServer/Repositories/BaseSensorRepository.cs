@@ -20,12 +20,15 @@ namespace CameraServer.Repositories
 
         #endregion Fields & Properties
 
+        #region ctors
+
         public BaseSensorRepository(MainContext context, ILoggerFactory loggerFactory)
-            //: base(context, loggerFactory)
         {
             Context = context;
             Logger = loggerFactory.CreateLogger(nameof(BaseSensorRepository));
         }
+
+        #endregion ctors
 
         #region Methods
 
@@ -36,7 +39,7 @@ namespace CameraServer.Repositories
 
         public List<BaseSensor> GetAll()
         {
-            Logger.LogCritical("Получение всех 'BaseSensors'");
+            Logger.LogCritical($"Получение всех '{nameof(BaseSensor)}'");
             return Context.BaseSensors.ToList();
         }
 

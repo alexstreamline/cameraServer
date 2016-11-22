@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
+using System.Text;
 
 namespace CameraServer.Models.Devices
 {
@@ -10,11 +12,13 @@ namespace CameraServer.Models.Devices
     {
         #region Fields & Properties
 
+        private PropertyInfo[] _propertyInfos;
+
         [Required]
         [UIHint("HiddenInput")]
         public long Id { get; set; }
 
-        [Display(Name = "День недели (0-6)")]
+        [Display(Name = "День недели")]
         public DayOfWeek ActionDayOfWeek { get; set; }
 
         [Display(Name = "Нужна фото от 1 камеры?")]
@@ -91,5 +95,25 @@ namespace CameraServer.Models.Devices
         public bool IsVibrationSensorDataNeed { get; set; }
 
         #endregion Fields & Properties
+
+        #region Methods
+
+        public override string ToString()
+        {
+            if (_propertyInfos == null)
+                _propertyInfos = this.GetType().GetProperties();
+
+            var sb = new StringBuilder();
+
+            foreach (var info in _propertyInfos)
+            {
+                var value = info.GetValue(this, null) ?? "(null)";
+                sb.AppendLine($"{info.Name} : {value}");
+            }
+
+            return sb.ToString();
+        }
+
+        #endregion Methods
     }
 }

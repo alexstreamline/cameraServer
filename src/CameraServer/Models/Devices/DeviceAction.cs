@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace CameraServer.Models.Devices
 {
@@ -14,7 +13,12 @@ namespace CameraServer.Models.Devices
         #region Fields & Properties
 
         [Display(Name = "Время в формате ЧЧ:ММ")]
-        [DataType(DataType.Date)]
+        //[RegularExpression(@"^([0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]", ErrorMessage = "Неверное значение (формат: ЧЧ:ММ)")]
+        //[RegularExpression(@"^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]", ErrorMessage = "Неверное значение (формат: ЧЧ:ММ)")]
+        //[RegularExpression(@"(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])", ErrorMessage = "Неверное значение (формат: ЧЧ:ММ)")]
+        //[RegularExpression(@"^\d$", ErrorMessage = "Неверное значение (формат: ЧЧ:ММ)")]
+        [Required]
+        [DataType(DataType.Time)]
         public DateTime ActionTime { get; set; }
 
         #endregion Fields & Properties
@@ -43,17 +47,7 @@ namespace CameraServer.Models.Devices
             IsGyroscopeDataNeed = otherDa.IsGyroscopeDataNeed;
             IsThermometerDataNeed = otherDa.IsThermometerDataNeed;
             IsWetSensorDataNeed = otherDa.IsWetSensorDataNeed;
-        }
-
-        public override string ToString()
-        {
-            return
-                new StringBuilder($"Id: {Id}, \nActionTime: {ActionTime}, \nActionDayOfWeek: {ActionDayOfWeek}, \n")
-                    .ToString();
-            //.Append($"IsCamera1PhotoNeed: {IsCamera1PhotoNeed}, \nIsCamera2PhotoNeed: {IsCamera2PhotoNeed}, \n")
-            //.Append($"IsCamera3PhotoNeed: {IsCamera3PhotoNeed}, \nIsCamera4PhotoNeed: {IsCamera4PhotoNeed}, \n")
-            //.Append($"IsSensorDataNeed: {IsSensorDataNeed}")
-            //.ToString();
+            IsVibrationSensorDataNeed = otherDa.IsVibrationSensorDataNeed;
         }
 
         #endregion Methods

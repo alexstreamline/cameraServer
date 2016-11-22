@@ -1,25 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using CameraServer.Enums;
 using CameraServer.Models.Devices;
 using CameraServer.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 
-namespace CameraServer.Controllers
+// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace CameraServer.Controllers.Device
 {
     [Authorize]
-    public class DeviceActionController : Controller
+    public class DeviceDataController : Controller
     {
         #region Fields & Properties
 
-        public IRepository<DeviceAction> Repository { get; set; }
+        public IRepository<DeviceData> Repository { get; set; }
 
         #endregion Fields & Properties
 
         #region ctors
 
-        public DeviceActionController(IRepository<DeviceAction> repo)
+        public DeviceDataController(IRepository<DeviceData> repo)
         {
             Repository = repo;
         }
@@ -30,11 +34,11 @@ namespace CameraServer.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Label = $"Сущности {nameof(DeviceData)}";
             ViewBag.Items = Repository.GetAll();
             return View();
         }
 
-        [HttpGet]
         public IActionResult Error(string actionString, long id)
         {
             ViewBag.Id = id;
@@ -68,7 +72,7 @@ namespace CameraServer.Controllers
         [HttpGet]
         public IActionResult Create(long? id)
         {
-            var model = new DeviceAction();
+            var model = new DeviceData();
             if (id.HasValue)
             {
                 model = Repository.Get(id.Value);
@@ -77,31 +81,26 @@ namespace CameraServer.Controllers
         }
 
         [HttpGet]
-        //public ContentResult Delete(long? id)
         public RedirectResult Delete(long? id)
         {
             if (!id.HasValue)
-                return Redirect($"DeviceAction/Error?actionString={CrudAction.Delete}&id={id}");
+                return Redirect($"DeviceData/Error?action={CrudAction.Delete}&id={id}");
             Repository.Delete(id.Value);
-            return Redirect("/");
-            //return Content($"Удален '{nameof(DeviceAction)}' с id = {id}<br/><a href='/'>На главную</a>", "text/html");
+            return Redirect("/DeviceData");
         }
 
         [HttpPost]
-        //public string Create(DeviceAction deviceAction)
-        public RedirectResult Create(DeviceAction deviceAction)
+        public RedirectResult Create(DeviceData deviceData)
         {
-            if (Repository.Get(deviceAction.Id) != null)
+            if (Repository.Get(deviceData.Id) != null)
             {
-                var update = Repository.Get(deviceAction.Id);
-                update.CopyDataFrom(deviceAction);
+                var update = Repository.Get(deviceData.Id);
+                update.CopyDataFrom(deviceData);
                 Repository.Put(update.Id, update);
-                return Redirect("/");
-                //return $"Cущность '{nameof(DeviceAction)}' была изменена: {deviceAction}";
+                return Redirect("/DeviceData");
             }
-            Repository.Post(deviceAction);
-            return Redirect("/");
-            //return $"Cущность '{nameof(DeviceAction)}' была добавлена: {deviceAction}";
+            Repository.Post(deviceData);
+            return Redirect("/DeviceData");
         }
 
         #endregion Methods

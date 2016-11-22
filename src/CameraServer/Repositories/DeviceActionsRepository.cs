@@ -40,7 +40,7 @@ namespace CameraServer.Repositories
 
         public List<DeviceAction> GetAll()
         {
-            Logger.LogCritical("Получение всех 'DeviceActions'");
+            Logger.LogCritical($"Получение всех '{nameof(DeviceAction)}'");
             return Context.DeviceActions.ToList();
         }
 
@@ -67,7 +67,7 @@ namespace CameraServer.Repositories
 
         public List<DeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
         {
-            Logger.LogCritical($"Получение всех 'DeviceActions' по дню {dayOfWeek}");
+            Logger.LogCritical($"Получение всех '{nameof(DeviceAction)}' по дню {dayOfWeek}");
             return Context.DeviceActions.Where(da => da.ActionDayOfWeek == dayOfWeek).ToList();
         }
 

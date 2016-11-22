@@ -20,12 +20,15 @@ namespace CameraServer.Repositories
 
         #endregion Fields & Properties
 
+        #region ctors
+
         public PhotoTransmitsRepository(MainContext context, ILoggerFactory loggerFactory) 
-            //: base(context, loggerFactory)
         {
             Context = context;
             Logger = loggerFactory.CreateLogger(nameof(PhotoTransmitsRepository));
         }
+
+        #endregion ctors
 
         public PhotoTransmit Get(long id)
         {
@@ -34,7 +37,7 @@ namespace CameraServer.Repositories
 
         public List<PhotoTransmit> GetAll()
         {
-            Logger.LogCritical("Получение всех 'PhotoTransmits'");
+            Logger.LogCritical($"Получение всех '{nameof(PhotoTransmit)}'");
             return Context.PhotoTransmits.ToList();
         }
 

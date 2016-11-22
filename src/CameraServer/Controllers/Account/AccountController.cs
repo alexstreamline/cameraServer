@@ -6,7 +6,7 @@ using CameraServer.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace CameraServer.Controllers
+namespace CameraServer.Controllers.Account
 {
     public class AccountController : Controller
     {

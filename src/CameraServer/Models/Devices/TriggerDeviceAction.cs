@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace CameraServer.Models.Devices
 {
@@ -34,17 +33,7 @@ namespace CameraServer.Models.Devices
             IsGyroscopeDataNeed = otherDa.IsGyroscopeDataNeed;
             IsThermometerDataNeed = otherDa.IsThermometerDataNeed;
             IsWetSensorDataNeed = otherDa.IsWetSensorDataNeed;
-        }
-
-        public override string ToString()
-        {
-            return
-                new StringBuilder($"Id: {Id}, \nSensorName: {SensorName}, \nActionDayOfWeek: {ActionDayOfWeek}, \n")
-                    .ToString();
-            //.Append($"IsCamera1PhotoNeed: {IsCamera1PhotoNeed}, \nIsCamera2PhotoNeed: {IsCamera2PhotoNeed}, \n")
-            //.Append($"IsCamera3PhotoNeed: {IsCamera3PhotoNeed}, \nIsCamera4PhotoNeed: {IsCamera4PhotoNeed}, \n")
-            //.Append($"IsSensorDataNeed: {IsSensorDataNeed}")
-            //.ToString();
+            IsVibrationSensorDataNeed = otherDa.IsVibrationSensorDataNeed;
         }
 
         #endregion Methods
