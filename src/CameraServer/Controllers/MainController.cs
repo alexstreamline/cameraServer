@@ -11,20 +11,15 @@ namespace CameraServer.Controllers
 
         public IRepository<DeviceAction> DeviceActionRepo { get; set; }
         public IRepository<TriggerDeviceAction> TriggerDeviceActionRepo { get; set; }
-        //public IRepository<DeviceData> DeviceDataRepository { get; set; }
-        //public IRepository<DeviceSensorSettings> DeviceSensorSettingsRepository { get; set; }
         
         #endregion Fields & Properties
 
         #region ctors
 
         public MainController(IRepository<DeviceAction> repoDa, IRepository<TriggerDeviceAction> repoTda)
-                              //IRepository<DeviceData> repoDd, IRepository<DeviceSensorSettings> repoDss)
         {
             DeviceActionRepo = repoDa;
             TriggerDeviceActionRepo = repoTda;
-            //DeviceDataRepository = repoDd;
-            //DeviceSensorSettingsRepository = repoDss;
         }
 
         #endregion ctors
@@ -45,22 +40,6 @@ namespace CameraServer.Controllers
             ViewBag.TriggerDeviceActions = (TriggerDeviceActionRepo as TriggerDeviceActionRepository).GetAllByDay(dayOfWeek);
             return View();
         }
-
-        //[HttpGet]
-        //public IActionResult DeviceSensorSettings()
-        //{
-        //    ViewBag.DeviceSensorSettingsLabel = $"Сущности {nameof(Models.Devices.DeviceSensorSettings)}";
-        //    ViewBag.DeviceSensorSettings = DeviceSensorSettingsRepository.GetAll();
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public IActionResult DeviceData()
-        //{
-        //    ViewBag.DeviceDataLabel = $"Сущности {nameof(Models.Devices.DeviceSensorSettings)}";
-        //    ViewBag.DeviceData = DeviceDataRepository.GetAll();
-        //    return View();
-        //}
 
         #endregion Methods
     }

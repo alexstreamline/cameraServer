@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CameraServer.Enums;
 using CameraServer.Models.Devices;
 using CameraServer.Repositories;
@@ -32,10 +29,19 @@ namespace CameraServer.Controllers.Device
 
         #region Methods
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(int? year, int? month, int? day)
         {
             ViewBag.Label = $"Сущности {nameof(DeviceData)}";
-            ViewBag.Items = Repository.GetAll();
+            if (year.HasValue && month.HasValue && day.HasValue)
+            {
+                ViewBag.Items = (Repository as DeviceDataRepository)
+                    .GetAllByDate(year.Value, month.Value, day.Value);
+            }
+            else
+            {
+                ViewBag.Items = Repository.GetAll();
+            }
             return View();
         }
 
@@ -102,7 +108,7 @@ namespace CameraServer.Controllers.Device
             Repository.Post(deviceData);
             return Redirect("/DeviceData");
         }
-
+        
         #endregion Methods
     }
 }

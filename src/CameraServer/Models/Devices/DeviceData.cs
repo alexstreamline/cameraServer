@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CameraServer.Models.Devices
 {
@@ -13,6 +14,11 @@ namespace CameraServer.Models.Devices
         [Required]
         [UIHint("HiddenInput")]
         public long Id { get; set; }
+
+        [Display(Name = "Дата и время")]
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime Timestamp { get; set; }
 
         #region GPS / GLONASS
 
@@ -69,6 +75,7 @@ namespace CameraServer.Models.Devices
         public void CopyDataFrom(DeviceData otherDd)
         {
             Id = otherDd.Id;
+            Timestamp = otherDd.Timestamp;
             GPSGLONASSDataLat = otherDd.GPSGLONASSDataLat;
             GPSGLONASSDataLon = otherDd.GPSGLONASSDataLon;
             AccelerometerDataX = otherDd.AccelerometerDataX;

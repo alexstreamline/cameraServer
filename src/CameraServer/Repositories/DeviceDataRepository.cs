@@ -57,6 +57,16 @@ namespace CameraServer.Repositories
             Context.SaveChanges();
         }
 
+        public List<DeviceData> GetAllByDate(int year, int month, int day)
+        {
+            return Context.DeviceData.Where(da => 
+                da.Timestamp.Year == year && 
+                da.Timestamp.Month == month && 
+                da.Timestamp.Day == day)
+            .OrderBy(dd => dd.Timestamp.Hour)
+            .ToList();
+        }
+
         #endregion Methods
     }
 }

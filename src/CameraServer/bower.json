@@ -8,6 +8,7 @@
     "jquery-validation-unobtrusive": "3.2.6",
     "bootstrap-datepicker": "1.6.0",
     "eonasdan-bootstrap-datetimepicker": "4.17.37",
-    "jquery-ui": "1.11.4"
+    "jquery-ui": "1.11.4",
+    "awesome-bootstrap-checkbox": "0.3.7"
   }
 }

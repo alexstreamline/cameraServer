@@ -1,3 +1,73 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model CameraServer.Models.Devices.DeviceData
+
+<form asp-action="Create" asp-controller="DeviceData" asp-anti-forgery="true" class="form-horizontal">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div class="form-group">
+            <input type="hidden" asp-for="Id" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Timestamp"></label><br />
+            <input type="text" asp-for="Timestamp" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GPSGLONASSDataLat"></label><br />
+            <input asp-for="GPSGLONASSDataLat" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GPSGLONASSDataLon"></label><br />
+            <input asp-for="GPSGLONASSDataLon" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccelerometerDataX"></label><br />
+            <input asp-for="AccelerometerDataX" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccelerometerDataY"></label><br />
+            <input asp-for="AccelerometerDataY" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccelerometerDataZ"></label><br />
+            <input asp-for="AccelerometerDataZ" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GyroscopeDataX"></label><br />
+            <input asp-for="GyroscopeDataX" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GyroscopeDataY"></label><br />
+            <input asp-for="GyroscopeDataY" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GyroscopeDataZ"></label><br />
+            <input asp-for="GyroscopeDataZ" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="BarometerData"></label><br />
+            <input asp-for="BarometerData" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CompassData"></label><br />
+            <input asp-for="CompassData" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ThermometerData"></label><br />
+            <input asp-for="ThermometerData" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="WetSensorData"></label><br />
+            <input asp-for="WetSensorData" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="VibrationSensorData"></label><br />
+            <input asp-for="VibrationSensorData" class="form-control" />
+        </div>
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+    </div>
+</form>
