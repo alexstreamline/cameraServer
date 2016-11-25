@@ -34,9 +34,9 @@ namespace CameraServer.Controllers
         [HttpGet]
         public IActionResult GetDevicesByWeekDay(DayOfWeek dayOfWeek)
         {
-            ViewBag.DeviceActionsLabel = $"Сущности {nameof(DeviceAction)}";
+            ViewBag.DeviceActionsLabel = "Сбор данных по времени";//$"Сущности {nameof(DeviceAction)}";
             ViewBag.DeviceActions = (DeviceActionRepo as DeviceActionsRepository).GetAllByDay(dayOfWeek);
-            ViewBag.TriggerDeviceActionsLabel = $"Сущности {nameof(TriggerDeviceAction)}";
+            ViewBag.TriggerDeviceActionsLabel = "Сбор данных по событию";//$"Сущности {nameof(TriggerDeviceAction)}";
             ViewBag.TriggerDeviceActions = (TriggerDeviceActionRepo as TriggerDeviceActionRepository).GetAllByDay(dayOfWeek);
             return View();
         }

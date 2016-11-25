@@ -32,7 +32,7 @@ namespace CameraServer.Controllers.Device
         [HttpGet]
         public IActionResult Index(int? year, int? month, int? day)
         {
-            ViewBag.Label = $"Сущности {nameof(DeviceData)}";
+            ViewBag.Label = "Данные телеметрии";//$"Сущности {nameof(DeviceData)}";
             if (year.HasValue && month.HasValue && day.HasValue)
             {
                 ViewBag.Items = (Repository as DeviceDataRepository)

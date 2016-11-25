@@ -31,7 +31,7 @@ namespace CameraServer.Controllers.Device
 
         public IActionResult Index()
         {
-            ViewBag.Label = $"Сущности {nameof(DeviceSensorSettings)}";
+            ViewBag.Label = "Настройки датчиков";//$"Сущности {nameof(DeviceSensorSettings)}";
             ViewBag.Items = Repository.GetAll();
             return View();
         }
