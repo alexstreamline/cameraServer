@@ -12,6 +12,7 @@ namespace CameraServer
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
+                .UseUrls("http://0.0.0.0:5005", "http://193.124.113.169:5005")
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()

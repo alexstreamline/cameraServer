@@ -1,10 +1,12 @@
 ﻿using System;
 using CameraServer.Models.Devices;
 using CameraServer.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CameraServer.Controllers
 {
+    [Authorize]
     public class MainController : Controller
     {
         #region Fields & Properties
