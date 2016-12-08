@@ -28,7 +28,7 @@
             <th>4 камера</th>
             <th>Отправка фото</th>
             <th>Данные с датчиков</th>
-            <th>1 датчик движения</th>
+            @*<th>1 датчик движения</th>
             <th>2 датчик движения</th>
             <th>3 датчик движения</th>
             <th>4 датчик движения</th>
@@ -39,7 +39,7 @@
             <th>Гироскоп</th>
             <th>Термометр</th>
             <th>Датчик влаги</th>
-            <th>Датчик вибраций</th>
+            <th>Датчик вибраций</th>*@
         </tr>
         </thead>
         <tbody>
@@ -65,7 +65,7 @@
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera4PhotoNeed == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsPhotoNeedToServer == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsSensorDataNeed == true ? "checked" : "")/></td>
-                    <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor1DataNeed == true ? "checked" : "")/></td>
+                    @*<td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor1DataNeed == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor2DataNeed == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor3DataNeed == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor4DataNeed == true ? "checked" : "")/></td>
@@ -76,7 +76,7 @@
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsGyroscopeDataNeed == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsThermometerDataNeed == true ? "checked" : "")/></td>
                     <td><input type="checkbox" disabled readonly @(deviceAction.IsWetSensorDataNeed == true ? "checked" : "")/></td>
-                    <td><input type="checkbox" disabled readonly @(deviceAction.IsVibrationSensorDataNeed == true ? "checked" : "") /></td>
+                    <td><input type="checkbox" disabled readonly @(deviceAction.IsVibrationSensorDataNeed == true ? "checked" : "") /></td>*@
                 </tr>
             }
         }
@@ -106,7 +106,7 @@
             <th>4 камера</th>
             <th>Отправка фото</th>
             <th>Данные с датчиков</th>
-            <th>1 датчик движения</th>
+            @*<th>1 датчик движения</th>
             <th>2 датчик движения</th>
             <th>3 датчик движения</th>
             <th>4 датчик движения</th>
@@ -117,7 +117,7 @@
             <th>Гироскоп</th>
             <th>Термометр</th>
             <th>Датчик влаги</th>
-            <th>Датчик вибраций</th>
+            <th>Датчик вибраций</th>*@
         </tr>
         </thead>
         <tbody>
@@ -143,7 +143,7 @@
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera4PhotoNeed == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsPhotoNeedToServer == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsSensorDataNeed == true ? "checked" : "")/></td>
-                        <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor1DataNeed == true ? "checked" : "")/></td>
+                        @*<td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor1DataNeed == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor2DataNeed == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor3DataNeed == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsMotionSensor4DataNeed == true ? "checked" : "")/></td>
@@ -154,7 +154,7 @@
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsGyroscopeDataNeed == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsThermometerDataNeed == true ? "checked" : "")/></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsWetSensorDataNeed == true ? "checked" : "")/></td>
-                        <td><input type="checkbox" disabled readonly @(deviceAction.IsVibrationSensorDataNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsVibrationSensorDataNeed == true ? "checked" : "") /></td>*@
                     </tr>
                 }
             }

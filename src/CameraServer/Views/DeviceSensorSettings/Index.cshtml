@@ -4,9 +4,9 @@
 <h3>
     <span class="label label-primary">@(ViewBag.Label)</span>
     &nbsp
-    <a href="/DeviceSensorSettings/Create" role="button" class="btn btn-success btn-large">
+    @*<a href="/DeviceSensorSettings/Create" role="button" class="btn btn-success btn-large">
         <span class="glyphicon glyphicon-plus"></span>
-    </a>
+    </a>*@
 </h3>
 
 <div class="table-responsive">
@@ -17,19 +17,19 @@
                 <th></th>
                 <th>ID</th>
                 <th>Компас: ограничение</th>
-                <th>Компас: режим</th>
+                @*<th>Компас: режим</th>*@
                 <th>Гироскоп: ограничение</th>
-                <th>Гироскоп: режим</th>
+                @*<th>Гироскоп: режим</th>*@
                 <th>Акселерометр: ограничение</th>
-                <th>Акселерометр: режим</th>
+                @*<th>Акселерометр: режим</th>*@
                 <th>GPS/GLONASS: ограничение</th>
-                <th>GPS/GLONASS: режим</th>
+                @*<th>GPS/GLONASS: режим</th>*@
                 <th>Термометр: ограничение</th>
-                <th>Термометр: режим</th>
+                @*<th>Термометр: режим</th>*@
                 <th>Барометр: ограничение</th>
-                <th>Барометр: режим</th>
+                @*<th>Барометр: режим</th>*@
                 <th>Датчик влажности: ограничение</th>
-                <th>Датчик влажности: режим</th>
+                @*<th>Датчик влажности: режим</th>*@
             </tr>
         </thead>
         <tbody>
@@ -52,19 +52,19 @@
                         </td>
                         <td>@settings.Id</td>
                         <td>@settings.CompasLimitValue</td>
-                        <td>@settings.CompasWorkMode</td>
+                        @*<td>@settings.CompasWorkMode</td>*@
                         <td>@settings.GyroscopeLimitValue</td>
-                        <td>@settings.GyroscopeWorkMode</td>
+                        @*<td>@settings.GyroscopeWorkMode</td>*@
                         <td>@settings.AccelerometerLimitValue</td>
-                        <td>@settings.AccelerometerWorkMode</td>
+                        @*<td>@settings.AccelerometerWorkMode</td>*@
                         <td>@settings.GPSGLONASSLimitValue</td>
-                        <td>@settings.GPSGLONASSWorkMode</td>
+                        @*<td>@settings.GPSGLONASSWorkMode</td>*@
                         <td>@settings.ThermometerLimitValue</td>
-                        <td>@settings.ThermometerWorkMode</td>
+                        @*<td>@settings.ThermometerWorkMode</td>*@
                         <td>@settings.BarometerLimitValue</td>
-                        <td>@settings.BarometerWorkMode</td>
+                        @*<td>@settings.BarometerWorkMode</td>*@
                         <td>@settings.WetSensorLimitValue</td>
-                        <td>@settings.WetSensorWorkMode</td>
+                        @*<td>@settings.WetSensorWorkMode</td>*@
                         @*<td><span class="label label-info">@settings.ActionTime.ToString("HH:mm")</span></td>
                         <td>@settings.ActionDayOfWeek</td>
                         <td><input type="checkbox" disabled readonly @(settings.IsCamera1PhotoNeed == true ? "checked" : "") /></td>*@

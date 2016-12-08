@@ -8,8 +8,8 @@ using CameraServer.Models;
 namespace CameraServer.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20161122113638_NewEntitiesMigration2")]
-    partial class NewEntitiesMigration2
+    [Migration("20161208000536_0812_migration")]
+    partial class _0812_migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,10 +43,6 @@ namespace CameraServer.Migrations
 
                     b.Property<DateTime>("ActionTime");
 
-                    b.Property<bool>("IsAccelerometerDataNeed");
-
-                    b.Property<bool>("IsBarometerDataNeed");
-
                     b.Property<bool>("IsCamera1PhotoNeed");
 
                     b.Property<bool>("IsCamera2PhotoNeed");
@@ -55,29 +51,9 @@ namespace CameraServer.Migrations
 
                     b.Property<bool>("IsCamera4PhotoNeed");
 
-                    b.Property<bool>("IsCompassDataNeed");
-
-                    b.Property<bool>("IsGPSGLONASSDataNeed");
-
-                    b.Property<bool>("IsGyroscopeDataNeed");
-
-                    b.Property<bool>("IsMotionSensor1DataNeed");
-
-                    b.Property<bool>("IsMotionSensor2DataNeed");
-
-                    b.Property<bool>("IsMotionSensor3DataNeed");
-
-                    b.Property<bool>("IsMotionSensor4DataNeed");
-
                     b.Property<bool>("IsPhotoNeedToServer");
 
                     b.Property<bool>("IsSensorDataNeed");
-
-                    b.Property<bool>("IsThermometerDataNeed");
-
-                    b.Property<bool>("IsVibrationSensorDataNeed");
-
-                    b.Property<bool>("IsWetSensorDataNeed");
 
                     b.HasKey("Id");
 
@@ -129,31 +105,19 @@ namespace CameraServer.Migrations
 
                     b.Property<float>("AccelerometerLimitValue");
 
-                    b.Property<int>("AccelerometerWorkMode");
-
                     b.Property<float>("BarometerLimitValue");
-
-                    b.Property<int>("BarometerWorkMode");
 
                     b.Property<float>("CompasLimitValue");
 
-                    b.Property<int>("CompasWorkMode");
-
                     b.Property<float>("GPSGLONASSLimitValue");
-
-                    b.Property<int>("GPSGLONASSWorkMode");
 
                     b.Property<float>("GyroscopeLimitValue");
 
-                    b.Property<int>("GyroscopeWorkMode");
+                    b.Property<int>("MotionTimeLimit");
 
                     b.Property<float>("ThermometerLimitValue");
 
-                    b.Property<int>("ThermometerWorkMode");
-
                     b.Property<float>("WetSensorLimitValue");
-
-                    b.Property<int>("WetSensorWorkMode");
 
                     b.HasKey("Id");
 
@@ -167,10 +131,6 @@ namespace CameraServer.Migrations
 
                     b.Property<int>("ActionDayOfWeek");
 
-                    b.Property<bool>("IsAccelerometerDataNeed");
-
-                    b.Property<bool>("IsBarometerDataNeed");
-
                     b.Property<bool>("IsCamera1PhotoNeed");
 
                     b.Property<bool>("IsCamera2PhotoNeed");
@@ -179,29 +139,9 @@ namespace CameraServer.Migrations
 
                     b.Property<bool>("IsCamera4PhotoNeed");
 
-                    b.Property<bool>("IsCompassDataNeed");
-
-                    b.Property<bool>("IsGPSGLONASSDataNeed");
-
-                    b.Property<bool>("IsGyroscopeDataNeed");
-
-                    b.Property<bool>("IsMotionSensor1DataNeed");
-
-                    b.Property<bool>("IsMotionSensor2DataNeed");
-
-                    b.Property<bool>("IsMotionSensor3DataNeed");
-
-                    b.Property<bool>("IsMotionSensor4DataNeed");
-
                     b.Property<bool>("IsPhotoNeedToServer");
 
                     b.Property<bool>("IsSensorDataNeed");
-
-                    b.Property<bool>("IsThermometerDataNeed");
-
-                    b.Property<bool>("IsVibrationSensorDataNeed");
-
-                    b.Property<bool>("IsWetSensorDataNeed");
 
                     b.Property<string>("SensorName");
 

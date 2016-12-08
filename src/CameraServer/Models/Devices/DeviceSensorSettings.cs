@@ -6,73 +6,170 @@ namespace CameraServer.Models.Devices
     public class DeviceSensorSettings
     {
         #region Fields & Properties
+        //motion
+        //compass
+        //gyroscope
+        //accelerometer
+        //barometer
+        //gps
+        //temperature
+        //humidity (wet sensor)
 
         [Required]
         [UIHint("HiddenInput")]
         public long Id { get; set; }
 
+        #region Motion
+
+        private int _motionTimeLimit;
+
+        [Display(Name = "Датчик движения: ограничение, сек. (0 - 10)")]
+        public int MotionTimeLimit
+        {
+            get { return _motionTimeLimit; }
+            set
+            {
+                if (value >= 0 && value <= 10)
+                {
+                    _motionTimeLimit = value;
+                }
+            }
+        }
+
+        #endregion
+
         #region Compas
 
-        [Display(Name = "Компас: ограничение")]
-        public float CompasLimitValue { get; set; }   //todo уточнить, какие направления есть у компаса
-        [Display(Name = "Компас: режим")]
-        public DeviceWorkMode CompasWorkMode { get; set; }
+        private float _compasLimitValue;
+        [Display(Name = "Компас: ограничение, градусы (0-360)")]
+        public float CompasLimitValue
+        {
+            get { return _compasLimitValue; }
+            set
+            {
+                if (value >= 0 && value < 360)
+                {
+                    _compasLimitValue = value;
+                }
+            }
+        }
+        //[Display(Name = "Компас: режим")]
+        //public DeviceWorkMode CompasWorkMode { get; set; }
 
         #endregion Compas
 
         #region Gyroscope
 
-        [Display(Name = "Гироскоп: ограничение")]
-        public float GyroscopeLimitValue { get; set; }
-        [Display(Name = "Гироскоп: режим")]
-        public DeviceWorkMode GyroscopeWorkMode { get; set; }
+        public float _gyroscopeLimitValue;
+
+        [Display(Name = "Гироскоп: ограничение, градусы (0-360)")]
+        public float GyroscopeLimitValue
+        {
+            get { return _gyroscopeLimitValue; }
+            set
+            {
+                if (value >= 0 && value <= 360)
+                {
+                    _gyroscopeLimitValue = value;
+                }
+            }
+        }
+        //[Display(Name = "Гироскоп: режим")]
+        //public DeviceWorkMode GyroscopeWorkMode { get; set; }
 
         #endregion Gyroscope
 
         #region Accelerometer
 
-        [Display(Name = "Акселерометр: ограничение")]
-        public float AccelerometerLimitValue { get; set; }
-        [Display(Name = "Акселерометр: режим")]
-        public DeviceWorkMode AccelerometerWorkMode { get; set; }
+        private float _accelerometerLimitValue;
+
+        [Display(Name = "Акселерометр: ограничение, м/с^2 (0-10)")]
+        public float AccelerometerLimitValue
+        {
+            get { return _accelerometerLimitValue; }
+            set
+            {
+                if (value >= 0 && value <= 10)
+                {
+                    _accelerometerLimitValue = value;
+                }
+            }
+
+        }
+        //[Display(Name = "Акселерометр: режим")]
+        //public DeviceWorkMode AccelerometerWorkMode { get; set; }
 
         #endregion Accelerometer
+
+        #region Barometer
+
+        private float _barometerLimitValue;
+        [Display(Name = "Барометр: ограничение, мбар (0-1000)")]
+        public float BarometerLimitValue
+        {
+            get { return _barometerLimitValue; }
+            set
+            {
+                if (value >= 0 && value <= 1000)
+                {
+                    _barometerLimitValue = value;
+                }
+            }
+        }
+        //[Display(Name = "Барометр: режим")]
+        //public DeviceWorkMode BarometerWorkMode { get; set; }
+
+        #endregion Barometer
 
         #region GPS / GLONASS
 
         // ReSharper disable InconsistentNaming
-        [Display(Name = "GPS/GLONASS: ограничение")]
-        public float GPSGLONASSLimitValue { get; set; }
-        [Display(Name = "GPS/GLONASS: режим")]
-        public DeviceWorkMode GPSGLONASSWorkMode { get; set; }
+        private float _GPSGLONASSLimitValue;
+        [Display(Name = "GPS/GLONASS: ограничение, град. (0 - 0.1)")]
+        public float GPSGLONASSLimitValue
+        {
+            get { return _GPSGLONASSLimitValue; }
+            set
+            {
+                if (value >= 0 && value <= 0.1)
+                {
+                    _GPSGLONASSLimitValue = value;
+                }
+            }
+        }
+        //[Display(Name = "GPS/GLONASS: режим")]
+        //public DeviceWorkMode GPSGLONASSWorkMode { get; set; }
         // ReSharper restore InconsistentNaming
 
         #endregion GPS / GLONASS
 
         #region Thermometer
 
-        [Display(Name = "Термометр: ограничение")]
-        public float ThermometerLimitValue { get; set; }
-        [Display(Name = "Термометр: режим")]
-        public DeviceWorkMode ThermometerWorkMode { get; set; }
+        private float _thermometerLimitValue;
+        [Display(Name = "Термометр: ограничение, град. Цельсия (0-50)")]
+        public float ThermometerLimitValue
+        {
+            get { return _thermometerLimitValue; }
+            set
+            {
+                if (value >= 0 && value <= 50)
+                {
+                    _thermometerLimitValue = value;
+                }
+            }
+        }
+        //[Display(Name = "Термометр: режим")]
+        //public DeviceWorkMode ThermometerWorkMode { get; set; }
 
         #endregion Thermometer
 
-        #region Barometer
-
-        [Display(Name = "Барометр: ограничение")]
-        public float BarometerLimitValue { get; set; }
-        [Display(Name = "Барометр: режим")]
-        public DeviceWorkMode BarometerWorkMode { get; set; }
-
-        #endregion Barometer
-
         #region WetSensor
 
-        [Display(Name = "Датчик влажности: ограничение")]
+        private float _wetSensorLimitValue;
+        [Display(Name = "Датчик влажности: ограничение, % (0-30)")]
         public float WetSensorLimitValue { get; set; }
-        [Display(Name = "Датчик влажности: режим")]
-        public DeviceWorkMode WetSensorWorkMode { get; set; }
+        //[Display(Name = "Датчик влажности: режим")]
+        //public DeviceWorkMode WetSensorWorkMode { get; set; }
 
         #endregion WetSensor
 
@@ -84,19 +181,19 @@ namespace CameraServer.Models.Devices
         {
             Id = otherDss.Id;
             CompasLimitValue = otherDss.CompasLimitValue;
-            CompasWorkMode = otherDss.CompasWorkMode;
+            //CompasWorkMode = otherDss.CompasWorkMode;
             GyroscopeLimitValue = otherDss.GyroscopeLimitValue;
-            GyroscopeWorkMode = otherDss.GyroscopeWorkMode;
+            //GyroscopeWorkMode = otherDss.GyroscopeWorkMode;
             AccelerometerLimitValue = otherDss.AccelerometerLimitValue;
-            AccelerometerWorkMode = otherDss.AccelerometerWorkMode;
+            //AccelerometerWorkMode = otherDss.AccelerometerWorkMode;
             GPSGLONASSLimitValue = otherDss.GPSGLONASSLimitValue;
-            GPSGLONASSWorkMode = otherDss.GPSGLONASSWorkMode;
+            //GPSGLONASSWorkMode = otherDss.GPSGLONASSWorkMode;
             ThermometerLimitValue = otherDss.ThermometerLimitValue;
-            ThermometerWorkMode = otherDss.ThermometerWorkMode;
+            //ThermometerWorkMode = otherDss.ThermometerWorkMode;
             BarometerLimitValue = otherDss.BarometerLimitValue;
-            BarometerWorkMode = otherDss.BarometerWorkMode;
+            //BarometerWorkMode = otherDss.BarometerWorkMode;
             WetSensorLimitValue = otherDss.WetSensorLimitValue;
-            WetSensorWorkMode = otherDss.WetSensorWorkMode;
+            //WetSensorWorkMode = otherDss.WetSensorWorkMode;
         }
 
         #endregion Methods

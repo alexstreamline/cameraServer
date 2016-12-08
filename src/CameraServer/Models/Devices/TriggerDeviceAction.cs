@@ -22,18 +22,18 @@ namespace CameraServer.Models.Devices
             IsCamera4PhotoNeed = otherDa.IsCamera4PhotoNeed;
             IsPhotoNeedToServer = otherDa.IsPhotoNeedToServer;
             IsSensorDataNeed = otherDa.IsSensorDataNeed;
-            IsMotionSensor1DataNeed = otherDa.IsMotionSensor1DataNeed;
-            IsMotionSensor2DataNeed = otherDa.IsMotionSensor2DataNeed;
-            IsMotionSensor3DataNeed = otherDa.IsMotionSensor3DataNeed;
-            IsMotionSensor4DataNeed = otherDa.IsMotionSensor4DataNeed;
-            IsGPSGLONASSDataNeed = otherDa.IsGPSGLONASSDataNeed;
-            IsBarometerDataNeed = otherDa.IsBarometerDataNeed;
-            IsCompassDataNeed = otherDa.IsCompassDataNeed;
-            IsAccelerometerDataNeed = otherDa.IsAccelerometerDataNeed;
-            IsGyroscopeDataNeed = otherDa.IsGyroscopeDataNeed;
-            IsThermometerDataNeed = otherDa.IsThermometerDataNeed;
-            IsWetSensorDataNeed = otherDa.IsWetSensorDataNeed;
-            IsVibrationSensorDataNeed = otherDa.IsVibrationSensorDataNeed;
+            //IsMotionSensor1DataNeed = otherDa.IsMotionSensor1DataNeed;
+            //IsMotionSensor2DataNeed = otherDa.IsMotionSensor2DataNeed;
+            //IsMotionSensor3DataNeed = otherDa.IsMotionSensor3DataNeed;
+            //IsMotionSensor4DataNeed = otherDa.IsMotionSensor4DataNeed;
+            //IsGPSGLONASSDataNeed = otherDa.IsGPSGLONASSDataNeed;
+            //IsBarometerDataNeed = otherDa.IsBarometerDataNeed;
+            //IsCompassDataNeed = otherDa.IsCompassDataNeed;
+            //IsAccelerometerDataNeed = otherDa.IsAccelerometerDataNeed;
+            //IsGyroscopeDataNeed = otherDa.IsGyroscopeDataNeed;
+            //IsThermometerDataNeed = otherDa.IsThermometerDataNeed;
+            //IsWetSensorDataNeed = otherDa.IsWetSensorDataNeed;
+            //IsVibrationSensorDataNeed = otherDa.IsVibrationSensorDataNeed;
         }
 
         #endregion Methods

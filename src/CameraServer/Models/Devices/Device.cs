@@ -45,54 +45,54 @@ namespace CameraServer.Models.Devices
         [UIHint("Boolean")]
         public bool IsSensorDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от 1 датчика движения?")]
-        [UIHint("Boolean")]
-        public bool IsMotionSensor1DataNeed { get; set; }
+        //[Display(Name = "Нужны данные от 1 датчика движения?")]
+        //[UIHint("Boolean")]
+        //public bool IsMotionSensor1DataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от 2 датчика движения?")]
-        [UIHint("Boolean")]
-        public bool IsMotionSensor2DataNeed { get; set; }
+        //[Display(Name = "Нужны данные от 2 датчика движения?")]
+        //[UIHint("Boolean")]
+        //public bool IsMotionSensor2DataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от 3 датчика движения?")]
-        [UIHint("Boolean")]
-        public bool IsMotionSensor3DataNeed { get; set; }
+        //[Display(Name = "Нужны данные от 3 датчика движения?")]
+        //[UIHint("Boolean")]
+        //public bool IsMotionSensor3DataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от 4 датчика движения?")]
-        [UIHint("Boolean")]
-        public bool IsMotionSensor4DataNeed { get; set; }
+        //[Display(Name = "Нужны данные от 4 датчика движения?")]
+        //[UIHint("Boolean")]
+        //public bool IsMotionSensor4DataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от GPS/ГЛОНАСС?")]
-        [UIHint("Boolean")]
-        // ReSharper disable once InconsistentNaming
-        public bool IsGPSGLONASSDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от GPS/ГЛОНАСС?")]
+        //[UIHint("Boolean")]
+        //// ReSharper disable once InconsistentNaming
+        //public bool IsGPSGLONASSDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от барометра?")]
-        [UIHint("Boolean")]
-        public bool IsBarometerDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от барометра?")]
+        //[UIHint("Boolean")]
+        //public bool IsBarometerDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от компаса?")]
-        [UIHint("Boolean")]
-        public bool IsCompassDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от компаса?")]
+        //[UIHint("Boolean")]
+        //public bool IsCompassDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от акселерометра?")]
-        [UIHint("Boolean")]
-        public bool IsAccelerometerDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от акселерометра?")]
+        //[UIHint("Boolean")]
+        //public bool IsAccelerometerDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от гироскопа?")]
-        [UIHint("Boolean")]
-        public bool IsGyroscopeDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от гироскопа?")]
+        //[UIHint("Boolean")]
+        //public bool IsGyroscopeDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от термометра?")]
-        [UIHint("Boolean")]
-        public bool IsThermometerDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от термометра?")]
+        //[UIHint("Boolean")]
+        //public bool IsThermometerDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от датчика влаги?")]
-        [UIHint("Boolean")]
-        public bool IsWetSensorDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от датчика влаги?")]
+        //[UIHint("Boolean")]
+        //public bool IsWetSensorDataNeed { get; set; }
 
-        [Display(Name = "Нужны данные от датчика вибрации?")]
-        [UIHint("Boolean")]
-        public bool IsVibrationSensorDataNeed { get; set; }
+        //[Display(Name = "Нужны данные от датчика вибрации?")]
+        //[UIHint("Boolean")]
+        //public bool IsVibrationSensorDataNeed { get; set; }
 
         #endregion Fields & Properties
 
