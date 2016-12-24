@@ -7,14 +7,17 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using CameraServer.Repositories;
 
 namespace CameraServer.Core.Controller
 {
     public class DeviceConnectionController
     {
         private TcpListener _serverListner;
-        private int localport = 52000;
-        IPAddress localIpAddress = IPAddress.Parse("193.124.113.169"); 
+        private int localport = 50000;
+        //IPAddress localIpAddress = IPAddress.Parse("193.124.113.169");
+        IPAddress localIpAddress = IPAddress.Parse("127.0.0.1");
+       
         public void StartServer()
         {
             _serverListner = new TcpListener(localIpAddress,localport );
@@ -23,7 +26,7 @@ namespace CameraServer.Core.Controller
             acceptThread.Start();
         }
 
-
+       
         void AcceptClients()
         {
             while (true)

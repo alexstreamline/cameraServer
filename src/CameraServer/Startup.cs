@@ -59,7 +59,7 @@ namespace CameraServer
             services.AddScoped<IRepository<DeviceData>, DeviceDataRepository>();
             services.AddScoped<IRepository<BaseSensor>, BaseSensorRepository>();
             services.AddScoped<IRepository<CameraPhoto>, CameraPhotosRepository>();
-            services.AddScoped<IRepository<PhotoTransmit>, PhotoTransmitsRepository>();
+            services.AddScoped<IRepository<PhotoTransmit>, PhotoTransmitsRepository>();           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

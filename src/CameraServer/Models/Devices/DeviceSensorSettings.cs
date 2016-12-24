@@ -167,7 +167,17 @@ namespace CameraServer.Models.Devices
 
         private float _wetSensorLimitValue;
         [Display(Name = "Датчик влажности: ограничение, % (0-30)")]
-        public float WetSensorLimitValue { get; set; }
+        public float WetSensorLimitValue
+        {  
+             get { return _wetSensorLimitValue; }
+            set
+            {
+                if (value >= 0 && value <= 30)
+                {
+                    _wetSensorLimitValue = value;
+                }
+            }
+        }
         //[Display(Name = "Датчик влажности: режим")]
         //public DeviceWorkMode WetSensorWorkMode { get; set; }
 

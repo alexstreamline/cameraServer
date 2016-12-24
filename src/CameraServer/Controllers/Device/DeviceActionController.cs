@@ -32,6 +32,12 @@ namespace CameraServer.Controllers.Device
             ViewBag.Items = Repository.GetAll();
             return View();
         }
+        [AllowAnonymous]
+        public JsonResult GetAllByJson()
+        {
+            ViewBag.Items = Repository.GetAll();
+            return Json(Repository.GetAll());
+        }
 
         [HttpGet]
         public IActionResult Error(string actionString, long id)

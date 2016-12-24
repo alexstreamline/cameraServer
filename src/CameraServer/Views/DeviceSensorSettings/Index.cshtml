@@ -4,7 +4,7 @@
 <h3>
     <span class="label label-primary">@(ViewBag.Label)</span>
     &nbsp
-    @*<a href="/DeviceSensorSettings/Create" role="button" class="btn btn-success btn-large">
+   @*<a href="/DeviceSensorSettings/Create" role="button" class="btn btn-success btn-large">
         <span class="glyphicon glyphicon-plus"></span>
     </a>*@
 </h3>
@@ -45,10 +45,10 @@
                             </a>
                         </td>
                         <td>
-                            <a href="/DeviceSensorSettings/Delete?id=@settings.Id"
+                            @*<a href="/DeviceSensorSettings/Delete?id=@settings.Id"
                                role="button" class="btn btn-danger btn-large">
                                 <span class="glyphicon glyphicon-trash"></span>
-                            </a>
+                            </a>*@
                         </td>
                         <td>@settings.Id</td>
                         <td>@settings.CompasLimitValue</td>
