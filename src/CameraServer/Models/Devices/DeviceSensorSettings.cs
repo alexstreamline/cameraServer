@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CameraServer.Enums;
+using System;
 
 namespace CameraServer.Models.Devices
 {
@@ -178,6 +179,10 @@ namespace CameraServer.Models.Devices
                 }
             }
         }
+
+        public bool IsContinousModeEnable { get; set; }
+        public DateTime StartTimeContinousMode { get; set; }
+        public DateTime EndTimeContinousMode { get; set; }
         //[Display(Name = "Датчик влажности: режим")]
         //public DeviceWorkMode WetSensorWorkMode { get; set; }
 

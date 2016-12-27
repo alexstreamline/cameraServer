@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text;
+using CameraServer.Enums;
 
 namespace CameraServer.Models.Devices
 {
@@ -19,7 +20,7 @@ namespace CameraServer.Models.Devices
         public long Id { get; set; }
 
         [Display(Name = "День недели")]
-        public DayOfWeek ActionDayOfWeek { get; set; }
+        public DayOfWeekCustom ActionDayOfWeek { get; set; }
 
         [Display(Name = "Нужна фото от 1 камеры?")]
         [UIHint("Boolean")]

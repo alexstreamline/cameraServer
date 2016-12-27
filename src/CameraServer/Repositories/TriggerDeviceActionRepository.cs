@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CameraServer.Models;
 using CameraServer.Models.Devices;
+using CameraServer.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -58,7 +59,7 @@ namespace CameraServer.Repositories
             Context.SaveChanges();
         }
 
-        public List<TriggerDeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
+        public List<TriggerDeviceAction> GetAllByDay(DayOfWeekCustom dayOfWeek)
         {
             Logger.LogCritical($"Получение всех '{nameof(TriggerDeviceAction)}' по дню {dayOfWeek}");
             return Context.TriggerDeviceActions.Where(tda => tda.ActionDayOfWeek == dayOfWeek).ToList();

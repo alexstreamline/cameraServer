@@ -8,6 +8,7 @@ namespace CameraServer.Repositories
 {
     using Models;
     using Models.Devices;
+    using CameraServer.Enums;
 
     /// <summary>
     /// Репозиторий DeviceActions
@@ -65,7 +66,7 @@ namespace CameraServer.Repositories
             Context.SaveChanges();
         }
 
-        public List<DeviceAction> GetAllByDay(DayOfWeek dayOfWeek)
+        public List<DeviceAction> GetAllByDay(DayOfWeekCustom dayOfWeek)
         {
             Logger.LogCritical($"Получение всех '{nameof(DeviceAction)}' по дню {dayOfWeek}");
             return Context.DeviceActions.Where(da => da.ActionDayOfWeek == dayOfWeek).ToList();

@@ -3,6 +3,7 @@ using CameraServer.Models.Devices;
 using CameraServer.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using CameraServer.Enums;
 
 namespace CameraServer.Controllers
 {
@@ -34,7 +35,7 @@ namespace CameraServer.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetDevicesByWeekDay(DayOfWeek dayOfWeek)
+        public IActionResult GetDevicesByWeekDay(DayOfWeekCustom dayOfWeek)
         {
             ViewBag.DeviceActionsLabel = "Сбор данных по времени";//$"Сущности {nameof(DeviceAction)}";
             ViewBag.DeviceActions = (DeviceActionRepo as DeviceActionsRepository).GetAllByDay(dayOfWeek);

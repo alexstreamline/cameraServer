@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace CameraServer.Models.Devices
 {
@@ -7,7 +8,9 @@ namespace CameraServer.Models.Devices
     public class TriggerDeviceAction : Device
     {
         [Display(Name = "Название датчика")]
-        public string SensorName { get; set; }
+        public Enums.DeviceSensorName SensorName { get; set; }
+       
+
 
         #region Methods
 
