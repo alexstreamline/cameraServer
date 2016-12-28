@@ -6,9 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CameraServer.Enums
 {
-    public class DeviceTriggerName
-    {
-        public enum DeviceSensorName
+        public enum DeviceTriggerName
         {
             // [Display(Name = "Motion1")]
             [Display(Name = "Датчик движения 1")]
@@ -37,8 +35,5 @@ namespace CameraServer.Enums
             Vibration,
             [Display(Name = "По времени")]
             Time
-
-
         }
-    }
 }

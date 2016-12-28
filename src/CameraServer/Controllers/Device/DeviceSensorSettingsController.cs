@@ -33,7 +33,7 @@ namespace CameraServer.Controllers.Device
         {
             ViewBag.Label = "Настройки датчиков";//$"Сущности {nameof(DeviceSensorSettings)}";
             ViewBag.Items = Repository.GetAll();
-            return View();
+            return View(ViewBag.Items[0]);
         }
         [AllowAnonymous]
         public JsonResult GetAllByJson()
@@ -103,6 +103,19 @@ namespace CameraServer.Controllers.Device
                 return Redirect("/DeviceSensorSettings");
             }
             Repository.Post(sensorSettings);
+            return Redirect("/DeviceSensorSettings");
+        }
+
+        [HttpPost]
+        public RedirectResult ChangeSettings(DeviceSensorSettings sensorSettings)//(bool isEnabled, string startTime, string endTime)
+        {
+            var settings = Repository.GetAll();
+
+            if (settings.Count <= 0)
+                return Redirect("/DeviceSensorSettings");
+            var setting = Repository.Get(settings[0].Id);
+            setting.CopyDataFrom(sensorSettings);
+            Repository.Put(setting.Id, setting);
             return Redirect("/DeviceSensorSettings");
         }
 

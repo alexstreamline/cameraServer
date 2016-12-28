@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model CameraServer.Models.Devices.DeviceSensorSettings
 <h3>
     <span class="label label-primary">@(ViewBag.Label)</span>
     &nbsp
@@ -73,4 +74,29 @@
             }
         </tbody>
     </table>
+    @if(ViewBag.Items.Count > 0)
+    {
+        <form asp-action="ChangeSettings" asp-controller="DeviceSensorSettings" asp-anti-forgery="true" class="form-horizontal">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="IsContinousModeEnable"></label><br />
+            <input asp-for="IsContinousModeEnable" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="StartTimeContinousMode"></label><br />
+            <input type="text" asp-for="StartTimeContinousMode" class="form-control" />
+            <span asp-validation-for="StartTimeContinousMode"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EndTimeContinousMode"></label><br />
+            <input type="text" asp-for="EndTimeContinousMode" class="form-control" />
+            <span asp-validation-for="EndTimeContinousMode"></span>
+        </div>
+        <div>
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Отправить</button>
+            </div>
+        </div>
+        </form>
+    }
 </div>

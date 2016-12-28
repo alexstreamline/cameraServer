@@ -8,9 +8,10 @@ using CameraServer.Models;
 namespace CameraServer.Migrations
 {
     [DbContext(typeof(MainContext))]
-    partial class MainContextModelSnapshot : ModelSnapshot
+    [Migration("20161228092630_mainContext")]
+    partial class mainContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
@@ -87,8 +88,6 @@ namespace CameraServer.Migrations
                     b.Property<float>("ThermometerData");
 
                     b.Property<DateTime>("Timestamp");
-
-                    b.Property<int>("TriggerName");
 
                     b.Property<float>("VibrationSensorData");
 

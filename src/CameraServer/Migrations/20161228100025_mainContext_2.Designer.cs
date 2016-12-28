@@ -8,8 +8,8 @@ using CameraServer.Models;
 namespace CameraServer.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20161208000536_0812_migration")]
-    partial class _0812_migration
+    [Migration("20161228100025_mainContext_2")]
+    partial class mainContext_2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,8 @@ namespace CameraServer.Migrations
 
                     b.Property<DateTime>("Timestamp");
 
+                    b.Property<int>("TriggerName");
+
                     b.Property<float>("VibrationSensorData");
 
                     b.Property<float>("WetSensorData");
@@ -109,11 +111,17 @@ namespace CameraServer.Migrations
 
                     b.Property<float>("CompasLimitValue");
 
+                    b.Property<DateTime>("EndTimeContinousMode");
+
                     b.Property<float>("GPSGLONASSLimitValue");
 
                     b.Property<float>("GyroscopeLimitValue");
 
+                    b.Property<bool>("IsContinousModeEnable");
+
                     b.Property<int>("MotionTimeLimit");
+
+                    b.Property<DateTime>("StartTimeContinousMode");
 
                     b.Property<float>("ThermometerLimitValue");
 
@@ -143,7 +151,7 @@ namespace CameraServer.Migrations
 
                     b.Property<bool>("IsSensorDataNeed");
 
-                    b.Property<string>("SensorName");
+                    b.Property<int>("SensorName");
 
                     b.HasKey("Id");
 

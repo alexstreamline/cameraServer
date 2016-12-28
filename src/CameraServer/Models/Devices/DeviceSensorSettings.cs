@@ -194,7 +194,7 @@ namespace CameraServer.Models.Devices
 
         public void CopyDataFrom(DeviceSensorSettings otherDss)
         {
-            Id = otherDss.Id;
+            //Id = otherDss.Id;
             CompasLimitValue = otherDss.CompasLimitValue;
             //CompasWorkMode = otherDss.CompasWorkMode;
             GyroscopeLimitValue = otherDss.GyroscopeLimitValue;
@@ -209,6 +209,9 @@ namespace CameraServer.Models.Devices
             //BarometerWorkMode = otherDss.BarometerWorkMode;
             WetSensorLimitValue = otherDss.WetSensorLimitValue;
             //WetSensorWorkMode = otherDss.WetSensorWorkMode;
+            IsContinousModeEnable = otherDss.IsContinousModeEnable;
+            StartTimeContinousMode = otherDss.StartTimeContinousMode;
+            EndTimeContinousMode = otherDss.EndTimeContinousMode;
         }
 
         #endregion Methods

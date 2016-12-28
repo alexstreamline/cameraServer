@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
+@using CameraServer.Enums;
 @model CameraServer.Models.Devices.DeviceData
 
 <form asp-action="Create" asp-controller="DeviceData" asp-anti-forgery="true" class="form-horizontal">
@@ -13,6 +14,10 @@
         <div class="form-group">
             <label asp-for="Timestamp"></label><br />
             <input type="text" asp-for="Timestamp" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="TriggerName"></label><br />
+            <select asp-for="TriggerName" asp-items="Html.GetEnumSelectList<DeviceTriggerName>()" class="form-control"></select>
         </div>
         <div class="form-group">
             <label asp-for="GPSGLONASSDataLat"></label><br />

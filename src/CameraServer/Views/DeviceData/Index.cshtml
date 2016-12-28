@@ -25,31 +25,11 @@
 </div>*@
 
 
-<div class="container">
-    <div class="col-sm-6" style="height:130px;">
-        <div class="form-group">
-            <div class='input-group date' id='datetimepicker11'>
-                <input type='date' class="form-control" id="filterDate"/>
-                @*<span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar">
-                    </span>
-                </span>*@
-            </div>
-        </div>
-    </div>
-    @*<script type="text/javascript">
-        $(function () {
-            $('#datetimepicker11').datetimepicker({
-                //daysOfWeekDisabled: [0, 6],
-                format: "YYYY-MM-DD"
-            });
-        });
-    </script>*@
-</div>
-
-
+<h4> Фильтр по дате: </h4>
+<input type='date' class="form-control" id="filterDate"/>
+</br>
 <div>
-    <button id="Filter">Отфильтровать</button>
+    <button id="Filter" class="btn btn-default">Отфильтровать</button>
 </div>
 
 
@@ -109,6 +89,7 @@
                 <th></th>
                 <th>ID</th>
                 <th>Дата и время</th>
+                <th>Имя триггера</th>
                 <th>GPS/GLONASS: широта</th>
                 <th>GPS/GLONASS: долгота</th>
                 <th>Акселерометр: ось Х</th>
@@ -144,6 +125,7 @@
                         </td>
                         <td>@data.Id</td>
                         <td><span class="label label-info">@data.Timestamp</span></td>
+                        <td>@data.TriggerName</td>
                         <td>@data.GPSGLONASSDataLat</td>
                         <td>@data.GPSGLONASSDataLon</td>
                         <td>@data.AccelerometerDataX</td>

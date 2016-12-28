@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CameraServer.Migrations
 {
-    public partial class _0812_migration : Migration
+    public partial class mainContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,9 +79,12 @@ namespace CameraServer.Migrations
                     AccelerometerLimitValue = table.Column<float>(nullable: false),
                     BarometerLimitValue = table.Column<float>(nullable: false),
                     CompasLimitValue = table.Column<float>(nullable: false),
+                    EndTimeContinousMode = table.Column<DateTime>(nullable: false),
                     GPSGLONASSLimitValue = table.Column<float>(nullable: false),
                     GyroscopeLimitValue = table.Column<float>(nullable: false),
+                    IsContinousModeEnable = table.Column<bool>(nullable: false),
                     MotionTimeLimit = table.Column<int>(nullable: false),
+                    StartTimeContinousMode = table.Column<DateTime>(nullable: false),
                     ThermometerLimitValue = table.Column<float>(nullable: false),
                     WetSensorLimitValue = table.Column<float>(nullable: false)
                 },
@@ -103,7 +106,7 @@ namespace CameraServer.Migrations
                     IsCamera4PhotoNeed = table.Column<bool>(nullable: false),
                     IsPhotoNeedToServer = table.Column<bool>(nullable: false),
                     IsSensorDataNeed = table.Column<bool>(nullable: false),
-                    SensorName = table.Column<string>(nullable: true)
+                    SensorName = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
