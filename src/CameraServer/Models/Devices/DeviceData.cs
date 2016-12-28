@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using CameraServer.Enums;
 
 namespace CameraServer.Models.Devices
 {
@@ -19,6 +20,9 @@ namespace CameraServer.Models.Devices
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime Timestamp { get; set; }
+
+        [Display(Name = "Имя триггера")]
+        public DeviceTriggerName TriggerName { get; set; }
 
         #region GPS / GLONASS
 
