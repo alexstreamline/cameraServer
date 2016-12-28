@@ -180,8 +180,13 @@ namespace CameraServer.Models.Devices
             }
         }
 
+        [Display(Name = "Включить режим непрерывного обмена")]
         public bool IsContinousModeEnable { get; set; }
+        [Display(Name = "Время старта режима (ЧЧ:ММ)")]
+        [DataType(DataType.Time)]
         public DateTime StartTimeContinousMode { get; set; }
+        [Display(Name = "Время окончания режима (ЧЧ:ММ)")]
+        [DataType(DataType.Time)]
         public DateTime EndTimeContinousMode { get; set; }
         //[Display(Name = "Датчик влажности: режим")]
         //public DeviceWorkMode WetSensorWorkMode { get; set; }
@@ -209,6 +214,10 @@ namespace CameraServer.Models.Devices
             //BarometerWorkMode = otherDss.BarometerWorkMode;
             WetSensorLimitValue = otherDss.WetSensorLimitValue;
             //WetSensorWorkMode = otherDss.WetSensorWorkMode;
+        }
+
+        public void CopySettings(DeviceSensorSettings otherDss)
+        {
             IsContinousModeEnable = otherDss.IsContinousModeEnable;
             StartTimeContinousMode = otherDss.StartTimeContinousMode;
             EndTimeContinousMode = otherDss.EndTimeContinousMode;

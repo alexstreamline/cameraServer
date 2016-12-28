@@ -114,7 +114,7 @@ namespace CameraServer.Controllers.Device
             if (settings.Count <= 0)
                 return Redirect("/DeviceSensorSettings");
             var setting = Repository.Get(settings[0].Id);
-            setting.CopyDataFrom(sensorSettings);
+            setting.CopySettings(sensorSettings);
             Repository.Put(setting.Id, setting);
             return Redirect("/DeviceSensorSettings");
         }
