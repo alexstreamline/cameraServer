@@ -1,5 +1,4 @@
-﻿using System;
-using CameraServer.Models.Devices;
+﻿using CameraServer.Models.Devices;
 using CameraServer.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,17 +11,15 @@ namespace CameraServer.Controllers
     {
         #region Fields & Properties
 
-        public IRepository<DeviceAction> DeviceActionRepo { get; set; }
-        public IRepository<TriggerDeviceAction> TriggerDeviceActionRepo { get; set; }
+        public IRepository<DeviceAction> Repository { get; set; }
         
         #endregion Fields & Properties
 
         #region ctors
 
-        public MainController(IRepository<DeviceAction> repoDa, IRepository<TriggerDeviceAction> repoTda)
+        public MainController(IRepository<DeviceAction> repository)
         {
-            DeviceActionRepo = repoDa;
-            TriggerDeviceActionRepo = repoTda;
+            Repository = repository;
         }
 
         #endregion ctors
@@ -37,10 +34,8 @@ namespace CameraServer.Controllers
         [HttpGet]
         public IActionResult GetDevicesByWeekDay(DayOfWeekCustom dayOfWeek)
         {
-            ViewBag.DeviceActionsLabel = "Сбор данных по времени";//$"Сущности {nameof(DeviceAction)}";
-            ViewBag.DeviceActions = (DeviceActionRepo as DeviceActionsRepository).GetAllByDay(dayOfWeek);
-            ViewBag.TriggerDeviceActionsLabel = "Сбор данных по событию";//$"Сущности {nameof(TriggerDeviceAction)}";
-            ViewBag.TriggerDeviceActions = (TriggerDeviceActionRepo as TriggerDeviceActionRepository).GetAllByDay(dayOfWeek);
+            ViewBag.DeviceActionsLabel = "Сбор данных по времени";
+            ViewBag.DeviceActions = (Repository as DeviceActionsRepository).GetAllByDay(dayOfWeek);
             return View();
         }
 

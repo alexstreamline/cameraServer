@@ -32,7 +32,8 @@ namespace CameraServer.Controllers.Device
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Items = Repository.GetAll();
+            ViewBag.TriggerDeviceActionsLabel = "Сбор данных по событию";
+            ViewBag.TriggerDeviceActions = Repository.GetAll();
             return View();
         }
         [AllowAnonymous]

@@ -1,23 +1,66 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@using CameraServer.Models.Devices
-<br />
-<a href="/TriggerDeviceAction/Create">Добавить новый 'TriggerDeviceAction'</a>
-<H1>DeviceActionRepo.GetAll result: </H1>
+
 @{
-    foreach (var item in ViewBag.Items)
-    {
-        var deviceAction = item as TriggerDeviceAction;
-        <hr />
-        @*<h2>Device Action Item: id - @deviceAction.Id</h2><br />*@
-        <h4>@deviceAction</h4>
-        @*<h4>Название: @deviceAction.SensorName</h4>
-        <h4>День недели: @deviceAction.ActionDayOfWeek</h4>
-        <h4>Нужна фото от 1 камеры?: @deviceAction.IsCamera1PhotoNeed</h4>
-        <h4>Нужна фото от 2 камеры?: @deviceAction.IsCamera2PhotoNeed</h4>
-        <h4>Нужна фото от 3 камеры?: @deviceAction.IsCamera3PhotoNeed</h4>
-        <h4>Нужна фото от 4 камеры?: @deviceAction.IsCamera4PhotoNeed</h4>
-        <h4>Нужны данные от датчиков?: @deviceAction.IsSensorDataNeed</h4>*@
-    }
+    Layout = null;
 }
+<h3>
+    <span class="label label-primary">@(ViewBag.TriggerDeviceActionsLabel)</span>
+    &nbsp
+    <a href="/TriggerDeviceAction/Create" role="button" class="btn btn-success btn-large">
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</h3>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr>
+                <th></th>
+                <th></th>
+                @*<th>ID</th>*@
+                <th>Название</th>
+                <th>День недели</th>
+                <th>1 камера</th>
+                <th>2 камера</th>
+                <th>3 камера</th>
+                <th>4 камера</th>
+                <th>Отправка фото</th>
+                <th>Данные с датчиков</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deviceAction in ViewBag.TriggerDeviceActions)
+            {
+                using (Html.BeginForm())
+                {
+                    <tr>
+                        <td>
+                            <a href="/TriggerDeviceAction/Create?id=@deviceAction.Id"
+                               role="button" class="btn btn-primary btn-large">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/TriggerDeviceAction/Delete?id=@deviceAction.Id"
+                               role="button" class="btn btn-danger btn-large">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                        @*<td>@deviceAction.Id</td>*@
+                        <td>
+                            <span class="label label-info">@deviceAction.SensorName</span>
+                        </td>
+                        <td>@deviceAction.ActionDayOfWeek</td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera1PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera2PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera3PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera4PhotoNeed == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsPhotoNeedToServer == true ? "checked" : "") /></td>
+                        <td><input type="checkbox" disabled readonly @(deviceAction.IsSensorDataNeed == true ? "checked" : "") /></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
