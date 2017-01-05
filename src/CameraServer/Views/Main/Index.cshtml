@@ -8,15 +8,18 @@
     });
 </script>
 
+<h3>День: @((int)ViewBag.Day)</h3>
+<h5>@((int)ViewBag.Day == 2 ? "ui-tabs-active ui-state-active" : "")</h5>
+
 <div id="tabs">
     <ul>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=1">Понедельник</a></li>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=2">Вторник</a></li>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=3">Среда</a></li>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=4">Четверг</a></li>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=5">Пятница</a></li>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=6">Суббота</a></li>
-        <li><a href="/Main/GetDevicesByWeekDay?dayOfWeek=0">Воскресение</a></li>
+        <li class="@((int)ViewBag.Day == 1 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=1">Понедельник</a></li>
+        <li class="@((int)ViewBag.Day == 2 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=2">Вторник</a></li>
+        <li class="@((int)ViewBag.Day == 3 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=3">Среда</a></li>
+        <li class="@((int)ViewBag.Day == 4 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=4">Четверг</a></li>
+        <li class="@((int)ViewBag.Day == 5 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=5">Пятница</a></li>
+        <li class="@((int)ViewBag.Day == 6 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=6">Суббота</a></li>
+        <li class="@((int)ViewBag.Day == 0 ? "ui-tabs-active ui-state-active" : "")"><a href="/Main/GetDevicesByWeekDay?dayOfWeek=0">Воскресение</a></li>
         <li><a href="/TriggerDeviceAction">События</a></li>
     </ul>
 </div> 

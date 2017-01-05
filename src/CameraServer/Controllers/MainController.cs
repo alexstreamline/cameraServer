@@ -32,6 +32,15 @@ namespace CameraServer.Controllers
         }
 
         [HttpGet]
+        public IActionResult Index(DayOfWeekCustom? dayOfWeek)
+        {
+            if (!dayOfWeek.HasValue)
+                dayOfWeek = DayOfWeekCustom.Monday;
+            ViewBag.Day = dayOfWeek.Value;
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult GetDevicesByWeekDay(DayOfWeekCustom dayOfWeek)
         {
             ViewBag.DeviceActionsLabel = "Сбор данных по времени";

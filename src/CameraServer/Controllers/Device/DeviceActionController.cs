@@ -101,11 +101,11 @@ namespace CameraServer.Controllers.Device
                 var update = Repository.Get(deviceAction.Id);
                 update.CopyDataFrom(deviceAction);
                 Repository.Put(update.Id, update);
-                return Redirect("/");
+                return Redirect($"/?dayOfWeek={(int)deviceAction.ActionDayOfWeek}");
                 //return $"Cущность '{nameof(DeviceAction)}' была изменена: {deviceAction}";
             }
             Repository.Post(deviceAction);
-            return Redirect("/");
+            return Redirect($"/?dayOfWeek={(int)deviceAction.ActionDayOfWeek}");
             //return $"Cущность '{nameof(DeviceAction)}' была добавлена: {deviceAction}";
         }
 
