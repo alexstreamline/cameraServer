@@ -63,7 +63,7 @@ namespace CameraServer.Models.Devices
 
         public float _gyroscopeLimitValue;
 
-        [Display(Name = "Гироскоп: ограничение, градусы (0-360)")]
+        [Display(Name = "Гироскоп: ограничение по любой оси, градусы (0-360)")]
         public float GyroscopeLimitValue
         {
             get { return _gyroscopeLimitValue; }
@@ -84,7 +84,7 @@ namespace CameraServer.Models.Devices
 
         private float _accelerometerLimitValue;
 
-        [Display(Name = "Акселерометр: ограничение, м/с^2 (0-10)")]
+        [Display(Name = "Акселерометр: ограничение по любой оси, м/с^2 (0-10)")]
         public float AccelerometerLimitValue
         {
             get { return _accelerometerLimitValue; }
@@ -105,7 +105,7 @@ namespace CameraServer.Models.Devices
         #region Barometer
 
         private float _barometerLimitValue;
-        [Display(Name = "Барометр: ограничение, мбар (0-1000)")]
+        [Display(Name = "Барометр: относительное изменение, мбар (0-1000)")]
         public float BarometerLimitValue
         {
             get { return _barometerLimitValue; }
@@ -126,7 +126,7 @@ namespace CameraServer.Models.Devices
 
         // ReSharper disable InconsistentNaming
         private float _GPSGLONASSLimitValue;
-        [Display(Name = "GPS/GLONASS: ограничение, град. (0 - 0.1)")]
+        [Display(Name = "GPS/GLONASS: относительное изменение, градусы (0 - 0.1)")]
         public float GPSGLONASSLimitValue
         {
             get { return _GPSGLONASSLimitValue; }
@@ -167,7 +167,7 @@ namespace CameraServer.Models.Devices
         #region WetSensor
 
         private float _wetSensorLimitValue;
-        [Display(Name = "Датчик влажности: ограничение, % (0-30)")]
+        [Display(Name = "Датчик влажности: относительное изменение, % (0-30)")]
         public float WetSensorLimitValue
         {  
              get { return _wetSensorLimitValue; }

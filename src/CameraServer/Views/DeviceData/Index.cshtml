@@ -31,6 +31,20 @@
 <div>
     <button id="Filter" class="btn btn-default">Отфильтровать</button>
 </div>
+<h3>
+    @*<div>*@
+        <a href="/DeviceData/CreateByLogs" role="button" class="btn btn-default">
+            Обновить данные из логов
+        </a>
+    @*</div>*@
+</h3>
+@*<h3>
+    <span class="label label-primary">Обновить данные из логов</span>
+    &nbsp
+    <a href="/DeviceData/Create" role="button" class="btn btn-success btn-large">
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</h3>*@
 
 
 <script type="text/javascript">
@@ -73,13 +87,13 @@
     </div>
 </div>*@
 
-<h3>
+@*<h3>
     <span class="label label-primary">@(ViewBag.Label)</span>
     &nbsp
     <a href="/DeviceData/Create" role="button" class="btn btn-success btn-large">
         <span class="glyphicon glyphicon-plus"></span>
     </a>
-</h3>
+</h3>*@
 
 <div class="table-responsive">
     <table class="table table-striped">
@@ -87,7 +101,7 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>ID</th>
+                @*<th>ID</th>*@
                 <th>Дата и время</th>
                 <th>Имя триггера</th>
                 <th>GPS/GLONASS: широта</th>
@@ -123,7 +137,7 @@
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a>
                         </td>
-                        <td>@data.Id</td>
+                        @*<td>@data.Id</td>*@
                         <td><span class="label label-info">@data.Timestamp</span></td>
                         <td>@data.TriggerName</td>
                         <td>@data.GPSGLONASSDataLat</td>

@@ -16,11 +16,11 @@ namespace CameraServer.Enums
         Wednesday,
         [Display(Name = "Четверг")]
         Thursday,
-        [Display(Name = "Пятница")]
+        [Display(Name = "Пятница")] 
         Friday,
         [Display(Name = "Суббота")]
         Saturday,
         [Display(Name = "Воскресенье")]
-        Sunday 
+        Sunday = 0
     }
 }

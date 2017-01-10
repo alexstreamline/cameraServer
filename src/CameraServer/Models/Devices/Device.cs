@@ -38,11 +38,11 @@ namespace CameraServer.Models.Devices
         [UIHint("Boolean")]
         public bool IsCamera4PhotoNeed { get; set; }
 
-        [Display(Name = "Отправлять фото на сервер?")]
+        [Display(Name = "Синхронизироваться с сервером?")]
         [UIHint("Boolean")]
         public bool IsPhotoNeedToServer { get; set; }
 
-        [Display(Name = "Нужны данные от датчиков?")]
+        [Display(Name = "Собирать данные с датчиков?")]
         [UIHint("Boolean")]
         public bool IsSensorDataNeed { get; set; }
 

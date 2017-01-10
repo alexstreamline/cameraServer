@@ -20,13 +20,13 @@
                 <th></th>
                 @*<th>ID</th>*@
                 <th>Название</th>
-                <th>День недели</th>
+                @*<th>День недели</th>*@
                 <th>1 камера</th>
                 <th>2 камера</th>
                 <th>3 камера</th>
                 <th>4 камера</th>
-                <th>Отправка фото</th>
-                <th>Данные с датчиков</th>
+                <th>Синхронизация с сервером</th>
+                <th>Сбор данных с датчиков</th>
             </tr>
         </thead>
         <tbody>
@@ -51,7 +51,7 @@
                         <td>
                             <span class="label label-info">@deviceAction.SensorName</span>
                         </td>
-                        <td>@deviceAction.ActionDayOfWeek</td>
+                        @*<td>@deviceAction.ActionDayOfWeek</td>*@
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera1PhotoNeed == true ? "checked" : "") /></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera2PhotoNeed == true ? "checked" : "") /></td>
                         <td><input type="checkbox" disabled readonly @(deviceAction.IsCamera3PhotoNeed == true ? "checked" : "") /></td>

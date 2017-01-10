@@ -4,6 +4,8 @@ using CameraServer.Models.Devices;
 using CameraServer.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using CameraServer.Core;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -95,6 +97,28 @@ namespace CameraServer.Controllers.Device
             return Redirect("/DeviceData");
         }
 
+        //public RedirectResult DeleteAll()
+        //{
+        //    var allData = Repository.GetAll();
+        //    foreach (var data in allData)
+        //    {
+        //        Repository.Delete(data.Id);
+        //    }
+        //   // Repository.
+        //    return Redirect("/DeviceData");
+        //}
+
+        public void DeleteAll()
+        {
+            var allData = Repository.GetAll();
+            foreach (var data in allData)
+            {
+                Repository.Delete(data.Id);
+            }
+            
+            
+        }
+
         [HttpPost]
         public RedirectResult Create(DeviceData deviceData)
         {
@@ -108,7 +132,21 @@ namespace CameraServer.Controllers.Device
             Repository.Post(deviceData);
             return Redirect("/DeviceData");
         }
-        
+
+
+        public RedirectResult CreateByLogs()
+        {
+            DeleteAll();
+            LogParser logParser = new LogParser();
+            logParser.ScanFile(@"C:\Users\Алексей\Desktop\халтуры\охрана\ы");
+            List<DeviceData> deviceDataList = logParser.deviceDataFullList;
+            foreach (var deviceData in deviceDataList)
+              {
+                Create(deviceData);
+              }
+            return Redirect("/DeviceData");
+        }
+
         #endregion Methods
     }
 }
