@@ -85,18 +85,15 @@ namespace CameraServer.Controllers.Device
         }
 
         [HttpGet]
-        //public ContentResult Delete(long? id)
         public RedirectResult Delete(long? id)
         {
             if (!id.HasValue)
                 return Redirect($"TriggerDeviceAction/Error?action={CrudAction.Delete}&id={id}");
             Repository.Delete(id.Value);
-            //return Content($"Удален '{nameof(TriggerDeviceAction)}' с id = {id}<br/><a href='/'>На главную</a>", "text/html");
-            return Redirect("/");
+            return Redirect("/?dayOfWeek=100");
         }
 
         [HttpPost]
-        //public string Create(TriggerDeviceAction deviceAction)
         public RedirectResult Create(TriggerDeviceAction deviceAction)
         {
             if (Repository.Get(deviceAction.Id) != null)
@@ -104,12 +101,10 @@ namespace CameraServer.Controllers.Device
                 var update = Repository.Get(deviceAction.Id);
                 update.CopyDataFrom(deviceAction);
                 Repository.Put(update.Id, update);
-                return Redirect("/");
-                //return $"Cущность '{nameof(TriggerDeviceAction)}' была изменена: {deviceAction}";
+                return Redirect("/?dayOfWeek=100");
             }
             Repository.Post(deviceAction);
-            return Redirect("/");
-            //return $"Cущность '{nameof(TriggerDeviceAction)}' была добавлена: {deviceAction}";
+            return Redirect("/?dayOfWeek=100");
         }
 
         #endregion Methods

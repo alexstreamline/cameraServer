@@ -87,9 +87,9 @@ namespace CameraServer.Controllers.Device
         {
             if (!id.HasValue)
                 return Redirect($"DeviceAction/Error?actionString={CrudAction.Delete}&id={id}");
+            var deviceAction = Repository.Get(id.Value);
             Repository.Delete(id.Value);
-            return Redirect("/");
-            //return Content($"Удален '{nameof(DeviceAction)}' с id = {id}<br/><a href='/'>На главную</a>", "text/html");
+            return Redirect($"/?dayOfWeek={(int)deviceAction.ActionDayOfWeek}");
         }
 
         [HttpPost]
@@ -102,11 +102,9 @@ namespace CameraServer.Controllers.Device
                 update.CopyDataFrom(deviceAction);
                 Repository.Put(update.Id, update);
                 return Redirect($"/?dayOfWeek={(int)deviceAction.ActionDayOfWeek}");
-                //return $"Cущность '{nameof(DeviceAction)}' была изменена: {deviceAction}";
             }
             Repository.Post(deviceAction);
             return Redirect($"/?dayOfWeek={(int)deviceAction.ActionDayOfWeek}");
-            //return $"Cущность '{nameof(DeviceAction)}' была добавлена: {deviceAction}";
         }
 
         #endregion Methods
